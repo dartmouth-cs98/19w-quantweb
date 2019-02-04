@@ -35,7 +35,8 @@ const Landing = (props) => {
               </div>
             </Col>
             <Col span={12}>
-              <h2> Cash when you need it </h2>
+              <h2> Need Cash Now? </h2>
+              <h2> Enter Withdraw Amount </h2>
             </Col>
           </Row>
           <PaymentContainer  />
