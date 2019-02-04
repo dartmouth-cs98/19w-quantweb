@@ -17,7 +17,7 @@ yarn start
 
 ## Authors
 
-Tyler Burnam, Azahr Hussain, Deven Orie, Joe Connolly
+Tyler Burnam, Azhar Hussain, Deven Orie, Joe Connolly
 
 ## Acknowledgments
 We used the CS52 web starter pack as a foundation for our project.
