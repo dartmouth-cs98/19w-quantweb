@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Layout, Row, Col } from 'antd';
+import PaymentContainer from './PaymentContainer';
 
 import { increment, decrement } from '../actions';
 
@@ -37,8 +38,7 @@ const Landing = (props) => {
               <h2> Cash when you need it </h2>
             </Col>
           </Row>
-
-            Content
+          <PaymentContainer  />
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
