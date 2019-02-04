@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 // import { Redirect } from 'react-router-dom';
 
 class PaymentForm extends Component {
@@ -65,14 +65,14 @@ class PaymentForm extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <div className='test-payment'>
-        CreditCard Withdraw Form
+      <div className="test-payment">
+        <h1> Test Transaction </h1>
         <Form onSubmit={this.handleSubmit} className="payment-form">
           <Form.Item>
             {getFieldDecorator('Amount', {
-            rules: [{ required: true, message: 'Please input the amount' }],
-          })(
-            <Input prefix={<Icon type="bank" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Withdraw amount" />,
+              rules: [{ required: true, message: 'Please input the amount' }],
+            })(
+              <Input prefix={<Icon type="bank" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Withdraw amount" />,
           )}
           </Form.Item>
           <Button type="primary" htmlType="submit" className="payment-form-button">
