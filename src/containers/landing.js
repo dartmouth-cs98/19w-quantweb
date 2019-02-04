@@ -84,7 +84,9 @@ const Landing = (props) => {
               </div>
             </Col>
           </Row>
-          <PaymentContainer />
+          <Row>
+            <PaymentContainer />
+          </Row>
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
