@@ -65,14 +65,14 @@ class PaymentForm extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <div className='test-payment'>
+      <div className="test-payment">
         Test Payment Form
         <Form onSubmit={this.handleSubmit} className="payment-form">
           <Form.Item>
             {getFieldDecorator('Amount', {
-            rules: [{ required: true, message: 'Please input the amount' }],
-          })(
-            <Input prefix={<Icon type="bank" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Payment amount" />,
+              rules: [{ required: true, message: 'Please input the amount' }],
+            })(
+              <Input prefix={<Icon type="bank" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Payment amount" />,
           )}
           </Form.Item>
           <Button type="primary" htmlType="submit" className="payment-form-button">

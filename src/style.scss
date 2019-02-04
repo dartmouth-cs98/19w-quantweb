@@ -1,12 +1,13 @@
 @import '~antd/dist/antd.css';
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: Avenir Next, sans-serif;
   background: darken(white, 0.2);
 }
 
 .banner_text h1, .banner_text h3 {
   color: #FFFFFF;
+  font-weight: bold;
 }
 
 .active {
@@ -22,8 +23,6 @@ body {
 }
 
 .banner_text {
-  // justify-content: flex-start;
-  // position: absolute;
   width: 50%;
   height: 145px;
   left: 100px;
@@ -100,7 +99,7 @@ body {
 #firstSection {
   display: flex;
   width: 100%;
-  height: 400px;
+  height: 500px;
   align-items: center;
   justify-content: center;
 }
@@ -132,6 +131,76 @@ body {
 
 #firstSectionBody {
   width: 400px;
+}
+
+#firstSectionBox {
+  display: flex;
+  width: auto;
+  flex-direction: column;
+}
+
+#secondSection {
+  display: flex;
+  width: 100%;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+}
+
+#secondSectionBox {
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+#secondSectionBox h1 {
+  text-align: center;
+}
+
+#howBanner {
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  color: #FFFFFF;
+  flex-direction: row;
+}
+
+#howTitle {
+  font-weight: bold;
+}
+
+#cardIcon {
+  width: 176px;
+}
+
+#cashIcon {
+  width: 114px;
+}
+
+#cashIconDiv {
+  height: 176px;
+}
+
+#walletIcon {
+  width: 112px;
+}
+
+#walletIconDiv {
+  height: 176px;
+}
+
+.iconCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconText {
+  color: black;
+  display: flex;
+  justify-content: center;
 }
 
 .payment-form-container {
