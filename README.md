@@ -1,6 +1,6 @@
 # Cash Advance Service Backend
 
-Frontend for credit card cash advance service application. Users are able to charge their credit cards a certain amount and then recieve these funds in their bank account after a given time. 
+Frontend for credit card cash advance service application. Users are able to charge their credit cards a certain amount and then receive these funds in their bank account after a given time. 
 
 ## Architecture
 
@@ -17,7 +17,7 @@ Frontend for credit card cash advance service application. Users are able to cha
 ````
 yarn start
 ````
-* If yarn is not insalled, use homebrew to install it. 
+* If yarn is not installed, use HomeBrew to install it. 
 * If node-sass is corrupted, use rebuild node-sass
 
 ## Authors
