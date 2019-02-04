@@ -133,3 +133,27 @@ body {
 #firstSectionBody {
   width: 400px;
 }
+
+.payment-form-container {
+  display: flex;
+  justify-content: center;
+}
+.payment-form {
+  max-width: 200px;
+  padding-top: 10px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 2px 2px 20px #ededed;
+}
+
+.payment-form-button {
+  width: 75%;
+}
+
+.test-payment {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
