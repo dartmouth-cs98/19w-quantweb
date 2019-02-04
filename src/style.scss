@@ -125,7 +125,7 @@ body {
 #firstSectionTag {
   font-family: Avenir Next;
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   line-height: normal;
 }
 
@@ -168,7 +168,7 @@ body {
 }
 
 #howTitle {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 #cardIcon {
@@ -200,6 +200,13 @@ body {
 .iconText {
   color: black;
   display: flex;
+  justify-content: center;
+}
+
+#thirdSectionBox {
+  height: 500px;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 

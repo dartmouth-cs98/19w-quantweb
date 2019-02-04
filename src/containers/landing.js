@@ -84,13 +84,13 @@ const Landing = (props) => {
               </div>
             </Col>
           </Row>
-          <Row>
+          <Row id="thirdSectionBox">
             <PaymentContainer />
           </Row>
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
-        Ant Design ©2018 Created by Ant UED
+       ©2019 Created by QuantWeb
       </Footer>
     </Layout>
   );
