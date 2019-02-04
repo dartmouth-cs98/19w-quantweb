@@ -5,7 +5,7 @@ body {
   background: darken(white, 0.2);
 }
 
-h1, h3 {
+.banner_text h1, .banner_text h3 {
   color: #FFFFFF;
 }
 
@@ -42,7 +42,7 @@ h1, h3 {
   margin-bottom: 10px;
 }
 
-.login {
+#login {
   position: absolute;
   width: 111px;
   height: 29px;
@@ -57,70 +57,79 @@ h1, h3 {
   color: #FFFFFF;
   font-family: Inter UI;
   font-style: normal;
-  font-weight: normal;
+  font-weight: lighter;
   line-height: normal;
 }
 
-.signup {
+#signup {
   position: absolute;
   width: 111px;
   height: 29px;
   right: 181px;
   top: 25px;
-
   border: 0px solid #42EEF8;
-  background-color: rgba(52, 52, 52, 0);
-  color: #FFFFFF;
-  font-family: Inter UI;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
 }
 
-.FAQ {
+#FAQ {
   position: absolute;
   width: 111px;
   height: 29px;
   right: 292px;
   top: 25px;
-
   border: 0px solid #42EEF8;
-  background-color: rgba(52, 52, 52, 0);
-  color: #FFFFFF;
-  font-family: Inter UI;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
 }
 
-.aboutus {
+#aboutus {
   position: absolute;
   width: 111px;
   height: 29px;
   right: 403px;
   top: 25px;
-
   border: 0px solid #42EEF8;
-  background-color: rgba(52, 52, 52, 0);
-  color: #FFFFFF;
-  font-family: Inter UI;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
 }
 
-.how {
+#how {
   position: absolute;
   width: 111px;
   height: 29px;
   right: 535px;
   top: 25px;
+  border: 0px solid #42EEF8;
+}
+
+#firstSection {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu_item {
+  font-family: Avenir Next;
+  font-style: normal;
+  font-weight: lighter;
+  line-height: normal;
 
   border: 0px solid #42EEF8;
   background-color: rgba(52, 52, 52, 0);
   color: #FFFFFF;
-  font-family: Inter UI;
+}
+
+#firstSectionText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#firstSectionTag {
+  font-family: Avenir Next;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   line-height: normal;
+}
+
+#firstSectionBody {
+  width: 400px;
 }

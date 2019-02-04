@@ -15,11 +15,11 @@ const Landing = (props) => {
           <Row>
             <Col span={24}>
               <div className="banner">
-                <button onClick={props.increment} className="login">Log In</button>
-                <button onClick={props.increment} className="signup">Sign Up</button>
-                <button onClick={props.increment} className="FAQ">FAQ</button>
-                <button onClick={props.increment} className="aboutus">About Us</button>
-                <button onClick={props.increment} className="how">How it Works</button>
+                <button onClick={props.increment} className="menu_item" id="login">Log In</button>
+                <button onClick={props.increment} className="menu_item" id="signup">Sign Up</button>
+                <button onClick={props.increment} className="menu_item" id="FAQ">FAQ</button>
+                <button onClick={props.increment} className="menu_item" id="aboutus">About Us</button>
+                <button onClick={props.increment} className="menu_item" id="how">How it Works</button>
                 <Col className="banner_text" span={12}>
                   <h1 className="banner_tag">
                   Cash advances in India are expensive...
@@ -28,14 +28,24 @@ const Landing = (props) => {
                   They dont have to be.
                   </p>
                   <p>
-                  Convert your credit card to cash while avoiding expensive bank fees.
+                  Convert your credit card to cash while <br /> avoiding expensive bank fees.
                   </p>
                 </Col>
               </div>
             </Col>
-            <Col span={12}>
-              <h2> Cash when you need it </h2>
+          </Row>
+          <Row id="firstSection">
+            <Col id="firstSectionText" span={12}>
+              <Row>
+                <h1 id="firstSectionTag"> Cash when you need it </h1>
+              </Row>
+              <Row>
+                <p id="firstSectionBody"> Having a credit card is great but sometimes, you need cash.
+                [Name] has you covered. Charge your card and recieve cash
+                direct in your bank </p>
+              </Row>
             </Col>
+            <Col span={12} />
           </Row>
 
             Content
