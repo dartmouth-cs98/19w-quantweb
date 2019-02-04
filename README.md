@@ -1,4 +1,4 @@
-# Cash Advance Service Backend
+# Cash Advance Service Frontend
 
 Frontend for credit card cash advance service application. Users are able to charge their credit cards a certain amount and then receive these funds in their bank account after a given time. 
 
