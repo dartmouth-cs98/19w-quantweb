@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import { Layout, Row, Col } from 'antd';
 import PaymentContainer from './PaymentContainer';
 
@@ -16,13 +16,14 @@ const Landing = (props) => {
           <Row>
             <Col span={24}>
               <div className="banner">
-                <button onClick={props.increment} className="menu_item" id="login">Sign Up</button>
-                <button onClick={props.increment} className="menu_item" id="signup">Log In</button>
-                <button onClick={props.increment} className="menu_item" id="FAQ">FAQ</button>
-                <button onClick={props.increment} className="menu_item" id="aboutus">About Us</button>
-                <button onClick={props.increment} className="menu_item" id="how">How it Works</button>
+                <NavLink className="menu_item" to="/signup" id="login">Sign Up</NavLink>
+                <NavLink to="/test" className="menu_item" id="signup">Log In</NavLink>
+                <NavLink to="/test" className="menu_item" id="FAQ">FAQ</NavLink>
+                <NavLink to="/test" className="menu_item" id="aboutus">About Us</NavLink>
+                <NavLink to="/test" className="menu_item" id="how">How it Works</NavLink>
+                <img src="https://i.imgur.com/TN4nDUA.png" alt="logo" id="logo" />
                 <Col className="banner_text" span={12}>
-                  <h1 className="banner_tag">
+                  <h1 id="banner_tag">
                   Cash advances in India are expensive...
                   </h1>
                   <p>
@@ -31,6 +32,7 @@ const Landing = (props) => {
                   <p>
                   Convert your credit card to cash while <br /> avoiding expensive bank fees.
                   </p>
+                  <button onClick={props.increment} className="menu_item" id="bannerSignUp">Sign Up</button>
                 </Col>
               </div>
             </Col>
@@ -50,7 +52,24 @@ const Landing = (props) => {
               </div>
             </Col>
             <Col span={12}>
-              <img src="https://i.imgur.com/gNPauTF.png" alt="lightning" />
+              <img id="firstSectionImage" src="https://i.imgur.com/jGt7Zpq.png" alt="lightning" />
+            </Col>
+          </Row>
+          <Row id="firstSection">
+            <Col span={12}>
+              <img id="firstSectionImage" src="https://i.imgur.com/jGt7Zpq.png" alt="lightning" />
+            </Col>
+            <Col id="firstSectionText" span={12}>
+              <div id="firstSectionBox">
+                <Row>
+                  <h1 id="firstSectionTag"> Investing in your future </h1>
+                </Row>
+                <Row>
+                  <p id="firstSectionBody">
+                Receive spark points for any purchase on our website. These points
+                represent ownership in</p>
+                </Row>
+              </div>
             </Col>
           </Row>
           <Row id="secondSection">
@@ -82,6 +101,15 @@ const Landing = (props) => {
                   </Col>
                 </Row>
               </div>
+              <Row>
+                <Col id="howContainer"span={24}>
+                  <p id="howExplainer">
+                  Yup, it’s really that easy. [Name] allows you to seamlessly charge
+                  your credit card and recieve cash to help you with any of your expenses.
+                  Our service fee of 6% is lower than any competing bank’s cash advance fees.
+                  </p>
+                </Col>
+              </Row>
             </Col>
           </Row>
           <Row id="thirdSectionBox">
