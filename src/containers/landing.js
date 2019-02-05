@@ -46,17 +46,17 @@ const Landing = (props) => {
                 <Row>
                   <p id="firstSectionBody">
                   Having a credit card is great but sometimes, you need cash.
-                  [Name] has you covered. Charge your card and recieve cash
-                  direct in your bank </p>
+                  PaisaJi has you covered, simply charge your credit card and recieve cash
+                  direct to your bank. It&apos;s as easy as that. </p>
                 </Row>
               </div>
             </Col>
             <Col span={12}>
-              <img id="firstSectionImage" src="https://i.imgur.com/jGt7Zpq.png" alt="lightning" />
+              <img id="firstSectionImage" src="https://i.imgur.com/1D54uUt.png" alt="lightning" />
             </Col>
           </Row>
-          <Row id="firstSection">
-            <Col span={12}>
+          <Row id="sparkSection">
+            <Col id="secondSectionImage" span={12}>
               <img id="firstSectionImage" src="https://i.imgur.com/jGt7Zpq.png" alt="lightning" />
             </Col>
             <Col id="firstSectionText" span={12}>
@@ -66,8 +66,9 @@ const Landing = (props) => {
                 </Row>
                 <Row>
                   <p id="firstSectionBody">
-                Receive spark points for any purchase on our website. These points
-                represent ownership in</p>
+                Receive SparkPoints for every transaction with PaisaJi. SparkPoints
+                are invested in stocks and bonds, so their value grows with the
+                market. Now that&apos;s investing made easy.</p>
                 </Row>
               </div>
             </Col>
@@ -97,14 +98,14 @@ const Landing = (props) => {
                     <p>2. Your card is charged and money is transfered</p>
                   </Col>
                   <Col className="iconText" span={8}>
-                    <p>3. Recieve cash in your bank account in 2-3 days</p>
+                    <p>3. Recieve funds in your bank account in 2-3 days</p>
                   </Col>
                 </Row>
               </div>
               <Row>
                 <Col id="howContainer"span={24}>
                   <p id="howExplainer">
-                  Yup, it’s really that easy. [Name] allows you to seamlessly charge
+                  Yup, it’s really that easy. PaisaJi allows you to seamlessly charge
                   your credit card and recieve cash to help you with any of your expenses.
                   Our service fee of 6% is lower than any competing bank’s cash advance fees.
                   </p>

@@ -18,7 +18,7 @@ body {
 .banner {
   background: url(https://i.imgur.com/mqfC5aZ.png);
   width: 100%;
-  height:100vh;
+  height:80vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -124,6 +124,15 @@ body {
   height: 600px;
   align-items: center;
   justify-content: center;
+  background-color: #f2f2f2;
+}
+
+#sparkSection {
+  display: flex;
+  width: 100%;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu_item {
@@ -151,10 +160,12 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: normal;
+  font-size: 40px;
 }
 
 #firstSectionBody {
   width: 400px;
+  font-size: 17px;
 }
 
 #firstSectionBox {
@@ -174,6 +185,11 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #f2f2f2;
+}
+
+#secondSectionImage {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 #secondSectionBox {
