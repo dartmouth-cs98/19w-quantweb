@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Layout, Row, Col } from 'antd';
 import PaymentContainer from './PaymentContainer';
-import LogInContainer from './LogInContainer';
-import RegisterUserContainer from './RegisterUserContainer';
 
 import { increment, decrement } from '../actions';
 
@@ -18,8 +16,8 @@ const Landing = (props) => {
           <Row>
             <Col span={24}>
               <div className="banner">
-                <NavLink className="menu_item" to="/signup" id="login">Sign Up</NavLink>
-                <NavLink to="/test" className="menu_item" id="signup">Log In</NavLink>
+                <NavLink className="menu_item" to="/register" id="login">Sign Up</NavLink>
+                <NavLink to="/login" className="menu_item" id="signup">Log In</NavLink>
                 <NavLink to="/test" className="menu_item" id="FAQ">FAQ</NavLink>
                 <NavLink to="/test" className="menu_item" id="aboutus">About Us</NavLink>
                 <NavLink to="/test" className="menu_item" id="how">How it Works</NavLink>
@@ -116,12 +114,6 @@ const Landing = (props) => {
           </Row>
           <Row id="thirdSectionBox">
             <PaymentContainer />
-          </Row>
-          <Row >
-            <LogInContainer />
-          </Row>
-          <Row >
-            <RegisterUserContainer />
           </Row>
         </div>
       </Content>

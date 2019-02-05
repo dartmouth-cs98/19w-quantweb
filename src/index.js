@@ -6,6 +6,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from './reducers';
 
 import Landing from './containers/landing';
+import LogInContainer from './containers/LogInContainer';
+import RegisterUserContainer from './containers/RegisterUserContainer';
 // import App from './components/app';
 
 // Import main style sheet for website
@@ -23,11 +25,6 @@ const About = (props) => {
   return <div> All there is to know about me </div>;
 };
 
-// TODO: Inline hack for test page
-const Test = (props) => {
-  return <div> this retrieves a record </div>;
-};
-
 // Main application
 const App = (props) => {
   return (
@@ -35,7 +32,8 @@ const App = (props) => {
       <div>
         <Route exact path="/" component={Landing} />
         <Route path="/about" component={About} />
-        <Route exact path="/test/:id" component={Test} />
+        <Route path="/login" component={LogInContainer} />
+        <Route path="/register" component={RegisterUserContainer} />
       </div>
     </Router>
   );
