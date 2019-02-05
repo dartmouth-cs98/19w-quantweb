@@ -2,9 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Layout, Row, Col } from 'antd';
-import PaymentContainer from './PaymentContainer';
 
-import { increment, decrement } from '../actions';
+import PaymentContainer from './PaymentContainer';
 
 const { Content, Footer } = Layout;
 
@@ -124,6 +123,12 @@ const Landing = (props) => {
   );
 };
 
-// react-redux glue -- outputs Container that knows how to call actions
-  // new way to connect with react router 4
-export default withRouter(connect(null, { increment, decrement })(Landing));
+// connects particular parts of redux state to this components props
+const mapStateToProps = state => (
+  {
+    authenticated: state.authenticated,
+  }
+);
+// react-redux glue -- outputs Container that know state in props
+// new way to connect with react router 4
+export default withRouter(connect(mapStateToProps, { })(Landing));

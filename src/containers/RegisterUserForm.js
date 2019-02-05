@@ -15,6 +15,7 @@ class RegisterUserForm extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleConfirmBlur = this.handleConfirmBlur.bind(this);
   }
 
   onChange(value) {
@@ -50,7 +51,7 @@ class RegisterUserForm extends Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        alert(`USER REGISTERED\n ${JSON.stringify(values)}`);
+        this.props.handleSubmit(values);
       }
     });
   }

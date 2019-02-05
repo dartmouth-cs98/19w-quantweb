@@ -27,7 +27,7 @@ class LogInForm extends Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        alert(`USER LoggedIN\nUserName: ${values.userName}\nPassword: ${values.password}`);
+        this.props.handleSubmit(values);
       }
     });
   }
@@ -39,10 +39,10 @@ class LogInForm extends Component {
         <h1> Test Login </h1>
         <Form onSubmit={this.handleSubmit} className="login-form">
           <Form.Item>
-            {getFieldDecorator('userName', {
-              rules: [{ required: true, message: 'Please input your username!' }],
+            {getFieldDecorator('email', {
+              rules: [{ required: true, message: 'Please input your email!' }],
             })(
-              <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />,
+              <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />,
               )}
           </Form.Item>
           <Form.Item>
@@ -63,7 +63,7 @@ class LogInForm extends Component {
             <Button type="primary" htmlType="submit" className="login-form-button">
                 Log in
             </Button>
-              Or <a href="">register now!</a>
+              Or <a href="/register">register now!</a>
           </Form.Item>
         </Form>
       </div>
