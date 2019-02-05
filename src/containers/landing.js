@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Layout, Row, Col } from 'antd';
 import PaymentContainer from './PaymentContainer';
+import LogInContainer from './LogInContainer';
+import RegisterUserContainer from './RegisterUserContainer';
 
 import { increment, decrement } from '../actions';
 
@@ -86,6 +88,12 @@ const Landing = (props) => {
           </Row>
           <Row id="thirdSectionBox">
             <PaymentContainer />
+          </Row>
+          <Row >
+            <LogInContainer />
+          </Row>
+          <Row >
+            <RegisterUserContainer />
           </Row>
         </div>
       </Content>
