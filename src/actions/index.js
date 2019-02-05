@@ -10,8 +10,8 @@ const ROOT_URL = process.env.NODE_ENV === 'production'
   ? 'http://ec2-54-212-62-214.us-west-2.compute.amazonaws.com/api/'
   : 'http://localhost:3000/api';
 
-
-const getConfig = () => ({ headers: { authorization: `Token ${localStorage.getItem('token')}` } });
+// TODO: This will be used to authenticate axios calls when adding actions
+// const getConfig = () => ({ headers: { authorization: `Token ${localStorage.getItem('token')}` } });
 
 // trigger to deauth if there is error
 // can also use in your error reducer if you have one to display an error message
@@ -31,12 +31,12 @@ export function signinUser({ email, password }, history) {
     //  localStorage.setItem('token', response.data.token);
     // on error should dispatch(authError(`Sign Up Failed: ${error.response.data}`));
   return (dispatch) => {
-    console.log({ email, password });
     axios.post(`${ROOT_URL}/signin`, { email, password }, { headers: { authorization: localStorage.getItem('token') } }).then((response) => {
       localStorage.setItem('token', response.data.user.token);
       dispatch({ type: ActionTypes.AUTH_USER, payload: true });
       history.push('/');
     }).catch((error) => {
+      console.log(error);
       dispatch(authError(`Sign In Failed: ${error.response.data}`));
     });
   };

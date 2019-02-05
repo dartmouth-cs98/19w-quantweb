@@ -6,6 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers';
 import { ActionTypes } from './actions';
+import requireAuth from './components/requireAuth';
 
 import Landing from './containers/landing';
 import LogInContainer from './containers/LogInContainer';
@@ -21,6 +22,7 @@ const store = createStore(reducers, {}, compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f,
 ));
 
+// Get token
 const token = localStorage.getItem('token');
 if (token) {
   store.dispatch({ type: ActionTypes.AUTH_USER });
@@ -41,7 +43,7 @@ const App = (props) => {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={requireAuth(Landing)} />
           <Route exact path="/about" component={About} />
           <Route exact path="/login" component={LogInContainer} />
           <Route exact path="/register" component={RegisterUserContainer} />
