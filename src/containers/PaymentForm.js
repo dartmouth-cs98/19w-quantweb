@@ -31,7 +31,7 @@ class PaymentForm extends Component {
       description: 'Test Payment',
       image: 'https://img.icons8.com/cotton/2x/get-cash.png',
       handler(response) {
-        alert(response.razorpay_payment_id);
+        console.log(response.razorpay_payment_id);
       },
       prefill: {
         name: 'Test Testerton',
