@@ -31,12 +31,12 @@ export function signinUser({ email, password }, history) {
     //  localStorage.setItem('token', response.data.token);
     // on error should dispatch(authError(`Sign Up Failed: ${error.response.data}`));
   return (dispatch) => {
-    console.log({ email, password });
     axios.post(`${ROOT_URL}/signin`, { email, password }, { headers: { authorization: localStorage.getItem('token') } }).then((response) => {
       localStorage.setItem('token', response.data.user.token);
       dispatch({ type: ActionTypes.AUTH_USER, payload: true });
       history.push('/');
     }).catch((error) => {
+      console.log(error);
       dispatch(authError(`Sign In Failed: ${error.response.data}`));
     });
   };
