@@ -62,3 +62,12 @@ export function signupUser({ email, password, username, phone }, history) {
     });
   };
 }
+
+// Delete auth token
+export function signoutUser(history) {
+  return (dispatch) => {
+    localStorage.removeItem('token');
+    dispatch({ type: ActionTypes.DEAUTH_USER });
+    history.push('/login');
+  };
+}
