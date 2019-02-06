@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { signupUser } from '../actions';
+import { signupUser } from '../../actions';
 import WrappedRegisterUserForm from './RegisterUserForm';
 
 class RegisterUserContainer extends React.Component {

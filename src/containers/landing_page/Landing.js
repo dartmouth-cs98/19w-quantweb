@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Layout, Row, Col } from 'antd';
 
-import PaymentContainer from './PaymentContainer';
-import Nav from './Nav';
+import PaymentContainer from '../payment/PaymentContainer';
+import Nav from '../Nav';
 
 const { Content, Footer } = Layout;
 

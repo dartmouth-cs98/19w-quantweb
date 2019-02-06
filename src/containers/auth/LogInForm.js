@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';// import { Redirect } from 'react-router-dom';
-import Nav from './Nav';
+import Nav from '../Nav';
 
 class LogInForm extends Component {
 
