@@ -296,6 +296,7 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center;
+  height: 500px;
 }
 
 .login-form {
@@ -383,4 +384,31 @@ body {
 .active-accordion{
   background-color: #520d9c;
   color: white;
+}
+
+#loginBanner{
+  width: 1000px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.payment-form-container1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  background-color: #f2f2f2;
+}
+
+#loginFormBanner{
+  width: 500px;
+  background-color: white;
+}
+
+.login-form-button{
+  background-color: #3c67c3;
 }

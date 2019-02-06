@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Row, Col } from 'antd';
+
 import WrappedLogInForm from './LogInForm';
 import { signinUser } from '../../actions';
-
+import Nav from '../Nav';
 
 class LogInContainer extends React.Component {
   constructor(props) {
@@ -21,8 +23,19 @@ class LogInContainer extends React.Component {
 
   render() {
     return (
-      <div className="payment-form-container1">
-        <WrappedLogInForm handleSubmit={this.handleSignIn} />
+      <div>
+        <Nav color="#3c67c3" />
+        <div className="payment-form-container1">
+
+          <Row id="loginBanner">
+            <Col id="loginImage">
+              <img src="https://i.imgur.com/D4NmNbl.png" alt="loginImg" />
+            </Col>
+            <Col id="loginFormBanner">
+              <WrappedLogInForm handleSubmit={this.handleSignIn} />
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }
