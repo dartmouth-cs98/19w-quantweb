@@ -8,9 +8,10 @@ import reducers from './reducers';
 import { ActionTypes } from './actions';
 import requireAuth from './components/requireAuth';
 
-import Landing from './containers/landing';
-import LogInContainer from './containers/LogInContainer';
-import RegisterUserContainer from './containers/RegisterUserContainer';
+import Landing from './containers/landing_page/Landing';
+import LogInContainer from './containers/auth/LogInContainer';
+import RegisterUserContainer from './containers/auth/RegisterUserContainer';
+import FAQ from './containers/landing_page/FAQ';
 // import App from './components/app';
 
 // Import main style sheet for website
@@ -29,9 +30,9 @@ if (token) {
 }
 
 // TODO: Inline hack for About page
-const About = (props) => {
-  return <div> All there is to know about me </div>;
-};
+// const About = (props) => {
+//   return <div> All there is to know about me </div>;
+// };
 
 const FallBack = (props) => {
   return <div>URL Not Found</div>;
@@ -44,7 +45,7 @@ const App = (props) => {
       <div>
         <Switch>
           <Route exact path="/" component={requireAuth(Landing)} />
-          <Route exact path="/about" component={About} />
+          <Route exact path="/faq" component={FAQ} />
           <Route exact path="/login" component={LogInContainer} />
           <Route exact path="/register" component={RegisterUserContainer} />
           <Route component={FallBack} />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';// import { Redirect } from 'react-router-dom';
+import Nav from '../Nav';
 
 class LogInForm extends Component {
 
@@ -36,7 +37,8 @@ class LogInForm extends Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div className="test-login">
-        <h1> Test Login </h1>
+        <Nav color="#3c67c3" />
+        <h1 id="loginHeader"> Test Login </h1>
         <Form onSubmit={this.handleSubmit} className="login-form">
           <Form.Item>
             {getFieldDecorator('email', {

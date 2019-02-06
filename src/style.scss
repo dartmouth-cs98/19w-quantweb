@@ -18,7 +18,7 @@ body {
 .banner {
   background: url(https://i.imgur.com/mqfC5aZ.png);
   width: 100%;
-  height:80vh;
+  height:600px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -29,7 +29,7 @@ body {
   width: 50%;
   height: 145px;
   left: 100px;
-  top: 125px;
+  top: 25px;
 
   font-family: Avenir Next;
   font-style: normal;
@@ -73,7 +73,7 @@ body {
 
 #signup {
   position: absolute;
-  width: 111px;
+  width: 80px;
   height: 29px;
   right: 181px;
   top: 25px;
@@ -93,7 +93,7 @@ body {
 
 #FAQ {
   position: absolute;
-  width: 111px;
+  width: 70px;
   height: 29px;
   right: 292px;
   top: 25px;
@@ -102,7 +102,7 @@ body {
 
 #aboutus {
   position: absolute;
-  width: 111px;
+  width: 90px;
   height: 29px;
   right: 403px;
   top: 25px;
@@ -111,7 +111,7 @@ body {
 
 #how {
   position: absolute;
-  width: 111px;
+  width: 105px;
   height: 29px;
   right: 535px;
   top: 25px;
@@ -203,16 +203,17 @@ body {
 }
 
 #howBanner {
-  background-color: white;
+  background-color: #f2f2f2;
   box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  color: #FFFFFF;
+  color: transparent;
   flex-direction: row;
+  border: 2px solid #42EEF8;
 }
 
 #howTitle {
   font-weight: normal;
+  font-size: 40px;
 }
 
 #cardIcon {
@@ -250,7 +251,7 @@ body {
 #howExplainer {
   width: 70%;
   text-align: center;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 #howContainer {
@@ -307,4 +308,74 @@ body {
 
 .login-form-button {
   width: 100%;
+}
+
+.iconText p {
+  font-size: 17px;
+  width: 80%;
+  text-align: center;
+}
+
+#nav {
+  height: 100px;
+  width: 100vw;
+}
+
+#faqFirstSection{
+  background-image: url(https://i.imgur.com/H4XL7Is.png);
+  background-repeat: no-repeat;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  background-color: #f2f2f2;
+}
+
+#faqFirstSectionText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#faqCollabsible{
+  width: 70vw;
+}
+
+.faqHead{
+  background-color: white;
+  font-size: 20px;
+  margin-top: 20px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  color: #808080;
+}
+
+.faqHead:hover{
+  background-color: #520d9c;
+  font-size: 20px;
+  margin-top: 20px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  color: white;
+  transform: scale(1.1);
+}
+
+#faqTitle {
+  text-align: center;
+  font-size: 60px;
+  color: white;
+  margin-top: 100px;
+}
+
+.faqBody {
+  margin-top: 10px;
+  padding-top: 14px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+#loginHeader{
+  margin-top: 50px;
+}
+
+#registrationHeader{
+  margin-top: 50px;
 }

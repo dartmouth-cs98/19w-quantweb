@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import WrappedLogInForm from './LogInForm';
-import { signinUser } from '../actions';
+import { signinUser } from '../../actions';
+
 
 class LogInContainer extends React.Component {
   constructor(props) {
