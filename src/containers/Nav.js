@@ -4,12 +4,12 @@ import { withRouter, NavLink } from 'react-router-dom';
 
 const Nav = (props) => {
   return (
-    <div id="nav">
-      <NavLink className="menu_item" to="/register" id="login">Sign Up</NavLink>
+    <div style={{ backgroundColor: props.color }}id="nav">
+      <NavLink to="/register" className="menu_item" id="login">Sign Up</NavLink>
       <NavLink to="/login" className="menu_item" id="signup">Log In</NavLink>
-      <NavLink to="/test" className="menu_item" id="FAQ">FAQ</NavLink>
+      <NavLink to="/faq" className="menu_item" id="FAQ">FAQ</NavLink>
       <NavLink to="/test" className="menu_item" id="aboutus">About Us</NavLink>
-      <NavLink to="/test" className="menu_item" id="how">How it Works</NavLink>
+      <NavLink to="/test" className="menu_item" id="how">How It Works</NavLink>
       <img src="https://i.imgur.com/TN4nDUA.png" alt="logo" id="logo" />
     </div>
   );

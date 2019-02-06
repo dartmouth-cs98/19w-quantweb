@@ -16,7 +16,7 @@ const Landing = (props) => {
           <Row>
             <Col span={24}>
               <div className="banner">
-                <Nav />
+                <Nav color="transparent" />
                 <Col className="banner_text" span={12}>
                   <h1 id="banner_tag">
                   Cash advances in India are expensive...
