@@ -10,7 +10,9 @@ const Nav = (props) => {
       <NavLink to="/faq" className="menu_item" id="FAQ">FAQ</NavLink>
       <NavLink to="/test" className="menu_item" id="aboutus">About Us</NavLink>
       <NavLink to="/test" className="menu_item" id="how">How It Works</NavLink>
-      <img src="https://i.imgur.com/TN4nDUA.png" alt="logo" id="logo" />
+      <NavLink to="/">
+        <img src="https://i.imgur.com/TN4nDUA.png" alt="logo" id="logo" />
+      </NavLink>
     </div>
   );
 };
