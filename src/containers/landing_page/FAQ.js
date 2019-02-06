@@ -20,7 +20,7 @@ const Landing = (props) => {
           <Row id="faqFirstSection">
             <Col id="faqFirstSectionText" span={12}>
               <div id="faqBody">
-                <h2 id="faqTitle">FAQ</h2>
+                <h2 id="faqTitle">Frequently Asked Questions</h2>
                 <Row id="faqCollabsible">
                   <CollapsibleComponent id="faqCollabsible">
                     <CollapsibleHead className="faqHead">How does it work?</CollapsibleHead>
