@@ -29,7 +29,7 @@ body {
   width: 50%;
   height: 145px;
   left: 100px;
-  top: 125px;
+  top: 25px;
 
   font-family: Avenir Next;
   font-style: normal;
@@ -307,4 +307,15 @@ body {
 
 .login-form-button {
   width: 100%;
+}
+
+.iconText p {
+  font-size: 17px;
+  width: 80%;
+  text-align: center;
+}
+
+#nav {
+  height: 100px;
+  width: 100vw;
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Layout, Row, Col } from 'antd';
 
 import PaymentContainer from './PaymentContainer';
+import Nav from './Nav';
 
 const { Content, Footer } = Layout;
 
@@ -15,12 +16,7 @@ const Landing = (props) => {
           <Row>
             <Col span={24}>
               <div className="banner">
-                <NavLink className="menu_item" to="/register" id="login">Sign Up</NavLink>
-                <NavLink to="/login" className="menu_item" id="signup">Log In</NavLink>
-                <NavLink to="/test" className="menu_item" id="FAQ">FAQ</NavLink>
-                <NavLink to="/test" className="menu_item" id="aboutus">About Us</NavLink>
-                <NavLink to="/test" className="menu_item" id="how">How it Works</NavLink>
-                <img src="https://i.imgur.com/TN4nDUA.png" alt="logo" id="logo" />
+                <Nav />
                 <Col className="banner_text" span={12}>
                   <h1 id="banner_tag">
                   Cash advances in India are expensive...
@@ -45,13 +41,13 @@ const Landing = (props) => {
                 <Row>
                   <p id="firstSectionBody">
                   Having a credit card is great but sometimes, you need cash.
-                  PaisaJi has you covered, simply charge your credit card and recieve cash
-                  direct to your bank. It&apos;s as easy as that. </p>
+                  PaisaJi has you covered, simply charge your credit card and recieve funds
+                  direct to your checking account. It&apos;s as easy as that. </p>
                 </Row>
               </div>
             </Col>
             <Col span={12}>
-              <img id="firstSectionImage" src="https://i.imgur.com/1D54uUt.png" alt="lightning" />
+              <img id="firstSectionImage" src="https://i.imgur.com/RDGMv4A.png" alt="lightning" />
             </Col>
           </Row>
           <Row id="sparkSection">
@@ -118,7 +114,7 @@ const Landing = (props) => {
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
-       ©2019 Created by QuantWeb
+       ©2019 PaisaJi
       </Footer>
     </Layout>
   );
