@@ -15,35 +15,11 @@ class RegisterUserForm extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleConfirmBlur = this.handleConfirmBlur.bind(this);
   }
 
   onChange(value) {
     this.setState({ x: 1 });
     console.log('changed', value);
-  }
-
-
-  handleConfirmBlur(e) {
-    const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-  }
-
-  compareToFirstPassword(rule, value, callback) {
-    const form = this.props.form;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
-    } else {
-      callback();
-    }
-  }
-
-  validateToNextPassword(rule, value, callback) {
-    const form = this.props.form;
-    if (value && this.state.confirmDirty) {
-      form.validateFields(['confirm'], { force: true });
-    }
-    callback();
   }
 
   handleSubmit(e) {
@@ -86,22 +62,30 @@ class RegisterUserForm extends Component {
 
     return (
       <div className="test-login">
-        <h1 id="registrationHeader"> Test Registration </h1>
+        <h1 id="registrationHeader"> Get Cash in Hand Today </h1>
+        <h2 id="registrationHeader2"> PaisaJi lets you transfer cash within minutes </h2>
         <Form onSubmit={this.handleSubmit} className="login-form">
-          <Form.Item {...formItemLayout} label="Username">
-            {getFieldDecorator('username', {
+          <Form.Item {...formItemLayout} >
+            {getFieldDecorator('firstname', {
               rules: [{
                 required: true,
-                message: 'Please input Username',
+                message: 'Please input First Name',
               }],
             })(
-              <Input placeholder="Please input your username" />,
+              <Input style={{ width: '200%' }} placeholder="First name" />,
             )}
           </Form.Item>
-          <Form.Item
-            {...formItemLayout}
-            label="E-mail"
-          >
+          <Form.Item {...formItemLayout} >
+            {getFieldDecorator('lastname', {
+              rules: [{
+                required: true,
+                message: 'Please input Last Name',
+              }],
+            })(
+              <Input style={{ width: '200%' }} placeholder="Last name" />,
+            )}
+          </Form.Item>
+          <Form.Item  {...formItemLayout}  >
             {getFieldDecorator('email', {
               rules: [{
                 type: 'email', message: 'The input is not valid E-mail!',
@@ -109,13 +93,10 @@ class RegisterUserForm extends Component {
                 required: true, message: 'Please input your E-mail!',
               }],
             })(
-              <Input />,
+              <Input style={{ width: '200%' }} placeholder="Email address"/>,
                     )}
           </Form.Item>
-          <Form.Item
-            {...formItemLayout}
-            label="Password"
-          >
+          <Form.Item {...formItemLayout}  >
             {getFieldDecorator('password', {
               rules: [{
                 required: true, message: 'Please input your password!',
@@ -123,31 +104,14 @@ class RegisterUserForm extends Component {
                         // validator: this.validateToNextPassword,
               }],
             })(
-              <Input type="password" />,
+              <Input style={{ width: '200%' }} placeholder="Password [min. 10 characters]" />,
                     )}
           </Form.Item>
-          <Form.Item
-            {...formItemLayout}
-            label="Confirm Password"
-          >
-            {getFieldDecorator('confirm', {
-              rules: [{
-                required: true, message: 'Please confirm your password!',
-              }, {
-                        // validator: this.compareToFirstPassword,
-              }],
-            })(
-              <Input type="password" onBlur={this.handleConfirmBlur} />,
-                    )}
-          </Form.Item>
-          <Form.Item
-            {...formItemLayout}
-            label="Phone Number"
-          >
+          <Form.Item {...formItemLayout} >
             {getFieldDecorator('phone', {
               rules: [{ required: true, message: 'Please input your phone number!' }],
             })(
-              <Input style={{ width: '100%' }} />,
+              <Input style={{ width: '200%' }} placeholder="Phone Number" />,
                     )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>

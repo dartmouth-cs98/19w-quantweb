@@ -15,8 +15,8 @@ class RegisterUserContainer extends React.Component {
   }
 
   // Call sign up action
-  handleSignUp({ email, password, username, phone }) {
-    this.props.signupUser({ email, password, username, phone }, this.props.history);
+  handleSignUp({ email, password, firstname, lastname, phone }) {
+    this.props.signupUser({ email, password, firstname, lastname, phone }, this.props.history);
   }
 
   render() {
