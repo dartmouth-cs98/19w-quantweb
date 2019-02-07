@@ -34,7 +34,7 @@ export function signinUser({ email, password }, history) {
     axios.post(`${ROOT_URL}/signin`, { email, password }, { headers: { authorization: localStorage.getItem('token') } }).then((response) => {
       localStorage.setItem('token', response.data.user.token);
       dispatch({ type: ActionTypes.AUTH_USER, payload: true });
-      history.push('/');
+      history.push('/dashboard');
     }).catch((error) => {
       console.log(error);
       dispatch(authError(`Sign In Failed: ${error.response.data}`));
@@ -56,7 +56,7 @@ export function signupUser({ email, password, username, phone }, history) {
     axios.post(`${ROOT_URL}/signup`, { email, password, phone, username }, { headers: { authorization: localStorage.getItem('token') } }).then((response) => {
       localStorage.setItem('token', response.data.user.token);
       dispatch({ type: ActionTypes.AUTH_USER, payload: true });
-      history.push('/');
+      history.push('/dashboard');
     }).catch((error) => {
       dispatch(authError(`Sign Up Failed: ${error}`));
     });
