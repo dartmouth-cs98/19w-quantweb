@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';// import { Redirect } from 'react-router-dom';
 
-import Nav from '../Nav';
-
 class RegisterUserForm extends Component {
 
 
@@ -88,7 +86,6 @@ class RegisterUserForm extends Component {
 
     return (
       <div className="test-login">
-        <Nav color="#3c67c3" />
         <h1 id="registrationHeader"> Test Registration </h1>
         <Form onSubmit={this.handleSubmit} className="login-form">
           <Form.Item {...formItemLayout} label="Username">

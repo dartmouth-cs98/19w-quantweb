@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { signupUser } from '../../actions';
+
 import WrappedRegisterUserForm from './RegisterUserForm';
+import Nav from '../Nav';
 
 class RegisterUserContainer extends React.Component {
   constructor(props) {
@@ -19,8 +21,11 @@ class RegisterUserContainer extends React.Component {
 
   render() {
     return (
-      <div className="payment-form-container1">
-        <WrappedRegisterUserForm handleSubmit={this.handleSignUp} />
+      <div>
+        <Nav color="#3c67c3" />
+        <div className="payment-form-container1">
+          <WrappedRegisterUserForm handleSubmit={this.handleSignUp} />
+        </div>
       </div>
     );
   }
