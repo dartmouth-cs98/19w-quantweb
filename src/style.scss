@@ -412,3 +412,18 @@ body {
 .login-form-button{
   background-color: #3c67c3;
 }
+
+#dashboardBody {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+}
+
+#newTransactionButton {
+  max-width: 150px;
+  min-width: 120px;
+  align-self: flex-end;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-top: 25px;
+}

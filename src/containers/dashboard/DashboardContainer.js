@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
+import { Button } from 'antd';
 import { fetchTransactions, createTransaction } from '../../actions';
 import PaymentContainer from '../payment/PaymentContainer';
+import TransactionTable from './TransactionTable';
 import Nav from '../Nav';
 
 class DashboardContainer extends React.Component {
@@ -50,8 +51,13 @@ class DashboardContainer extends React.Component {
     return (
       <div>
         <Nav color="#3c67c3" />
-        <h1> You are on Dashboard Page </h1>
-        <PaymentContainer handleTransaction={this.handleCreateTransaction} />
+        <div id="dashboardBody">
+          {/* <PaymentContainer handleTransaction={this.handleCreateTransaction} /> */}
+          <Button type="primary" id="newTransactionButton">
+            + New Transaction
+          </Button>
+          <TransactionTable />
+        </div>
       </div>
     );
   }
