@@ -13,14 +13,18 @@ class PaymentContainer extends React.Component {
   render() {
     return (
       <div className="payment-form-container">
-        <WrappedPaymentForm />
+        <WrappedPaymentForm handleTransaction={this.props.handleTransaction} />
       </div>
     );
   }
 }
 
-PaymentContainer.propTypes = {
-
-};
-
-export default withRouter(connect(null, {})(PaymentContainer));
+// connects particular parts of redux state to this components props
+const mapStateToProps = state => (
+  {
+    authenticated: state.authenticated,
+  }
+);
+// react-redux glue -- outputs Container that know state in props
+// new way to connect with react router 4
+export default withRouter(connect(mapStateToProps, { })(PaymentContainer));
