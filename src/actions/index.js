@@ -11,7 +11,7 @@ const ROOT_URL = process.env.NODE_ENV === 'production'
   : 'http://localhost:3000/api';
 
 // TODO: This will be used to authenticate axios calls when adding actions
-// const getConfig = () => ({ headers: { authorization: `Token ${localStorage.getItem('token')}` } });
+const getConfig = () => ({ headers: { authorization: `Token ${localStorage.getItem('token')}` } });
 
 // trigger to deauth if there is error
 // can also use in your error reducer if you have one to display an error message
@@ -70,4 +70,21 @@ export function signoutUser(history) {
     dispatch({ type: ActionTypes.DEAUTH_USER });
     history.push('/login');
   };
+}
+
+
+export function createTransaction(paymentId, cb) {
+  axios.post(`${ROOT_URL}/createTransaction`, { paymentId }, getConfig()).then((response) => {
+    cb(undefined, response);
+  }).catch((error) => {
+    cb(error, undefined);
+  });
+}
+
+export function fetchTransactions(cb) {
+  axios.get(`${ROOT_URL}/getTransactionsForUser`, getConfig()).then((response) => {
+    cb(response.data);
+  }).catch((error) => {
+    console.error(error);
+  });
 }

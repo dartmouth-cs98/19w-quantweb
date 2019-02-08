@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Form, Icon, Input, Button } from 'antd';
+
 // import { Redirect } from 'react-router-dom';
 
 class PaymentForm extends Component {
 
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       confirmDirty: false,
       autoCompleteResult: [],
@@ -13,13 +16,7 @@ class PaymentForm extends Component {
       redirect: false,
     };
 
-    this.onChange = this.onChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  onChange(value) {
-    this.setState({ x: 1 });
-    console.log('changed', value);
   }
 
   handleSubmit(e) {
@@ -30,8 +27,8 @@ class PaymentForm extends Component {
       name: 'Test Merchant',
       description: 'Test Payment',
       image: 'https://img.icons8.com/cotton/2x/get-cash.png',
-      handler(response) {
-        console.log(response.razorpay_payment_id);
+      handler: (response) => {
+        this.props.handleTransaction(response.razorpay_payment_id);
       },
       prefill: {
         name: 'Test Testerton',
@@ -86,4 +83,12 @@ class PaymentForm extends Component {
 
 const WrappedPaymentForm = Form.create()(PaymentForm);
 
-export default WrappedPaymentForm;
+// connects particular parts of redux state to this components props
+const mapStateToProps = state => (
+  {
+    authenticated: state.authenticated,
+  }
+);
+// react-redux glue -- outputs Container that know state in props
+// new way to connect with react router 4
+export default withRouter(connect(mapStateToProps, { })(WrappedPaymentForm));

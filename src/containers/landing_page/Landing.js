@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Layout, Row, Col } from 'antd';
 
-import PaymentContainer from '../payment/PaymentContainer';
 import Nav from '../Nav';
 
 const { Content, Footer } = Layout;
@@ -107,9 +106,6 @@ const Landing = (props) => {
                 </Col>
               </Row>
             </Col>
-          </Row>
-          <Row id="thirdSectionBox">
-            <PaymentContainer />
           </Row>
         </div>
       </Content>
