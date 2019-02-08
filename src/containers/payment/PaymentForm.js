@@ -20,42 +20,7 @@ class PaymentForm extends Component {
   }
 
   handleSubmit(e) {
-    // Default options
-    const options = {
-      key: 'rzp_test_34XZtQhCECAwjv',
-      amount: '0',
-      name: 'Test Merchant',
-      description: 'Test Payment',
-      image: 'https://img.icons8.com/cotton/2x/get-cash.png',
-      handler: (response) => {
-        this.props.handleTransaction(response.razorpay_payment_id);
-      },
-      prefill: {
-        name: 'Test Testerton',
-        email: 'test@test.com',
-        contact: '5-555-555-5555',
-      },
-      notes: {
-        address: 'Hello World',
-      },
-      theme: {
-        color: '#F37254',
-      },
-    };
-
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        // Set amount
-        options.amount = parseFloat(values.Amount);
-
-        // Open razorpay client form
-        const rzp = new window.Razorpay(options);
-        rzp.open();
-      }
-    });
-
-
-    e.preventDefault();
+   
   }
 
 

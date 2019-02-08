@@ -12,16 +12,8 @@ class TransactionTable extends Component {
       data: [],
     };
 
-    this.processData = this.processData.bind(this);
-  }
-
-  componentWillMount() {
-    // TODO: Grab transactions
-  }
-
-  // Clean transactions for table
-  processData(inputData) {
-    // TODO: We can clean the data here
+    console.log('Init:');
+    console.log(this.props.records);
   }
 
   render() {
@@ -63,7 +55,7 @@ class TransactionTable extends Component {
       <div>
         <center><span id="title">Transactions</span></center>
         <div id="mainTable">
-          <Table columns={columns} dataSource={this.state.data} />
+          <Table columns={columns} dataSource={this.props.records} />
         </div>
       </div>
     );
