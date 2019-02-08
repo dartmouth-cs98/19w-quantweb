@@ -423,17 +423,6 @@ body {
   background-color: #3c67c3;
 }
 
-#dashboardHeader {
-  font-family: Avenir Next;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
-  font-size: 25px;
-  margin-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 0px;
-}
-
 #dashboardBody {
   display: flex;
   flex-flow: column;
@@ -444,7 +433,13 @@ body {
   max-width: 150px;
   min-width: 120px;
   align-self: flex-end;
-  margin-right: 20px;
+  margin-right: 10%;
   margin-bottom: 20px;
-  margin-top: 5px;
+  margin-top: 20px;
+}
+
+#mainTable {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 1%;
 }

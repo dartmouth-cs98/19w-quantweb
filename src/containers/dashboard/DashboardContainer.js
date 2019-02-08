@@ -15,18 +15,22 @@ class DashboardContainer extends React.Component {
     this.handleTransaction = this.handleCreateTransaction.bind(this);
     this.handleNewTransaction = this.handleNewTransaction.bind(this);
 
-      // Clean transactions for table
+      // Utility method to process transaction data for table
     this.processData = (inputData) => {
+      // Validate that records were recieved
       if (inputData !== undefined) {
+        // Iterate over each record and construct a clean object
         return inputData.map((value) => {
           let { amount, to, from, status } = value;
           const { paymentId, date } = value;
 
+          // TODO: These fields should be set once we move to
+          //       our own manual checkout form
           if (!to || !from || !status || !amount) {
             status = 'created';
             to = '';
             from = '';
-            amount = 0;
+            amount = 10;
           }
 
           return { paymentId, date, amount, to, from, status };
@@ -104,8 +108,6 @@ class DashboardContainer extends React.Component {
       <div>
         <Nav color="#3c67c3" />
         <div id="dashboardBody">
-          <h1 id="dashboardHeader">Dashboard</h1>
-          {/* <PaymentContainer handleTransaction={this.handleCreateTransaction} /> */}
           <Button type="primary" id="newTransactionButton" onClick={this.handleNewTransaction}>
             + New Transaction
           </Button>
