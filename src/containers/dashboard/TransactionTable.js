@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Tag } from 'antd';
+import { Table } from 'antd';
 
 class TransactionTable extends Component {
 
@@ -9,7 +9,6 @@ class TransactionTable extends Component {
     // const processedData = processData(input);
 
     this.state = {
-      ipLocations: {},
       data: [],
     };
 
@@ -18,44 +17,11 @@ class TransactionTable extends Component {
 
   componentWillMount() {
     // TODO: Grab transactions
-    // TODO: We need to paginate here, use firestore.
-    // firebasedb.handleLogRecord((key, value) => {
-    //   const records = value.val();
-    //   const result = Object.keys(records).map((k) => {
-    //     return records[k];
-    //   });
-    //   const data = this.processData(result);
-    //   this.setState({
-    //     data,
-    //   });
-    // });
   }
 
   // Clean transactions for table
   processData(inputData) {
-    const processedData = [];
-    debugger;
-    for (const record of inputData) {
-      // Create new object model
-      const newData = {
-        level: record.level,
-        source: record.id,
-        action: record.action,
-        message: record.message,
-        file: record.file,
-        tags: 'test',
-        timestamp: record.timestamp,
-        source_copy: record.id,
-      };
-
-      // Get location name for IP
-      // this.setIPLocation(newData.source_copy);
-
-      // Add new record
-      processedData.push(newData);
-      // }
-    }
-    return processedData;
+    // TODO: We can clean the data here
   }
 
   render() {
