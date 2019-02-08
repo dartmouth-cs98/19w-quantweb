@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
+import { Button } from 'antd';
 import { fetchTransactions, createTransaction } from '../../actions';
-import PaymentContainer from '../payment/PaymentContainer';
+import TransactionTable from './TransactionTable';
 import Nav from '../Nav';
 
 class DashboardContainer extends React.Component {
@@ -13,6 +13,31 @@ class DashboardContainer extends React.Component {
 
     this.getTransactions = this.getTransactions.bind(this);
     this.handleTransaction = this.handleCreateTransaction.bind(this);
+    this.handleNewTransaction = this.handleNewTransaction.bind(this);
+
+      // Utility method to process transaction data for table
+    this.processData = (inputData) => {
+      // Validate that records were recieved
+      if (inputData !== undefined) {
+        // Iterate over each record and construct a clean object
+        return inputData.map((value) => {
+          let { amount, to, from, status } = value;
+          const { paymentId, date } = value;
+
+          // TODO: These fields should be set once we move to
+          //       our own manual checkout form
+          if (!to || !from || !status || !amount) {
+            status = 'created';
+            to = '';
+            from = '';
+            amount = 10;
+          }
+
+          return { paymentId, date, amount, to, from, status };
+        });
+      }
+      return undefined;
+    };
   }
 
   componentDidMount() {
@@ -27,7 +52,7 @@ class DashboardContainer extends React.Component {
       });
 
       // Debug line
-      console.log(transactions);
+      // console.log(transactions);
     });
   }
 
@@ -46,12 +71,48 @@ class DashboardContainer extends React.Component {
       }
     });
   }
+
+  handleNewTransaction(e) {
+ // Default options
+    const options = {
+      key: 'rzp_test_34XZtQhCECAwjv',
+      amount: 1000,
+      name: 'Test Merchant',
+      description: 'Test Payment',
+      image: 'https://img.icons8.com/cotton/2x/get-cash.png',
+      handler: (response) => {
+        this.handleCreateTransaction(response.razorpay_payment_id);
+      },
+      prefill: {
+        name: 'Test Testerton',
+        email: 'test@test.com',
+        contact: '5-555-555-5555',
+      },
+      notes: {
+        address: 'Hello World',
+      },
+      theme: {
+        color: '#F37254',
+      },
+    };
+
+      // Open razorpay client form
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+
+    e.preventDefault();
+  }
+
   render() {
     return (
       <div>
         <Nav color="#3c67c3" />
-        <h1> You are on Dashboard Page </h1>
-        <PaymentContainer handleTransaction={this.handleCreateTransaction} />
+        <div id="dashboardBody">
+          <Button type="primary" id="newTransactionButton" onClick={this.handleNewTransaction}>
+            + New Transaction
+          </Button>
+          <TransactionTable records={this.processData(this.state.transactions)} />
+        </div>
       </div>
     );
   }

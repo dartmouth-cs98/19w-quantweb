@@ -80,6 +80,16 @@ body {
   border: 0px solid #42EEF8;
 }
 
+#dashboard {
+  position: absolute;
+  width: 80px;
+  height: 29px;
+  right: 181px;
+  top: 25px;
+  margin-right: 0.75%;
+  border: 0px solid #42EEF8;
+}
+
 #bannerSignUp {
   border: 2px solid #42EEF8;
   box-sizing: border-box;
@@ -411,4 +421,25 @@ body {
 
 .login-form-button{
   background-color: #3c67c3;
+}
+
+#dashboardBody {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+}
+
+#newTransactionButton {
+  max-width: 150px;
+  min-width: 120px;
+  align-self: flex-end;
+  margin-right: 10%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#mainTable {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 1%;
 }

@@ -37,7 +37,7 @@ export function signinUser({ email, password }, history) {
       history.push('/dashboard');
     }).catch((error) => {
       console.log(error);
-      dispatch(authError(`Sign In Failed: ${error.response.data}`));
+      dispatch(authError(`Sign In Failed: ${error}`));
     });
   };
 }
