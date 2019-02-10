@@ -73,8 +73,8 @@ export function signoutUser(history) {
 }
 
 
-export function createTransaction(paymentId, cb) {
-  axios.post(`${ROOT_URL}/createTransaction`, { paymentId }, getConfig()).then((response) => {
+export function createTransaction(paymentId, orderId, cb) {
+  axios.post(`${ROOT_URL}/createTransaction`, { paymentId, orderId }, getConfig()).then((response) => {
     cb(undefined, response);
   }).catch((error) => {
     cb(error, undefined);

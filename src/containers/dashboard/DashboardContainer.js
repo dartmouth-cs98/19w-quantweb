@@ -95,7 +95,7 @@ class DashboardContainer extends React.Component {
       if (err) {
         return;
       }
-      createOrder(values.amount, this.handleNewTransaction);
+      createOrder(parseInt(values.amount, 10), this.handleNewTransaction);
 
 
       console.log('Received values of form: ', values);
@@ -112,8 +112,8 @@ class DashboardContainer extends React.Component {
   }
 
   // Utility method to handle transaction creation
-  handleCreateTransaction(transactionId) {
-    createTransaction(transactionId, (err, response) => {
+  handleCreateTransaction(transactionId, orderId) {
+    createTransaction(transactionId, orderId, (err, response) => {
       if (err) {
         // TODO: Handle failure gracefully
         console.log(err);
@@ -123,6 +123,7 @@ class DashboardContainer extends React.Component {
           paymentId: response.data.paymentId,
           date: response.data.date,
           status: response.data.status,
+          amount: response.data.amount,
         };
         this.setState({
           transactions: [...this.state.transactions, newTransaction],
@@ -144,7 +145,9 @@ class DashboardContainer extends React.Component {
       image: 'https://img.icons8.com/cotton/2x/get-cash.png',
       order_id: e.data.orderId,
       handler: (response) => {
-        this.handleCreateTransaction(response.razorpay_payment_id);
+        console.log('adding paymentID');
+        console.log(response);
+        this.handleCreateTransaction(response.razorpay_payment_id, response.razorpay_order_id);
       },
       prefill: {
         name: 'Test Testerton',
@@ -172,11 +175,8 @@ class DashboardContainer extends React.Component {
       <div>
         <Nav color="#3c67c3" />
         <div id="dashboardBody">
-          <Button type="primary" id="newTransactionButton" onClick={this.handleNewTransaction}>
-            + New Transaction
-          </Button>
           <Button type="primary" id="newTransactionButton" onClick={this.showModal}>
-            Custom Transaction
+            + New Transaction
           </Button>
           <CollectionCreateForm
             wrappedComponentRef={this.saveFormRef}
