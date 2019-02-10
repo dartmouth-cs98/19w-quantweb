@@ -88,3 +88,13 @@ export function fetchTransactions(cb) {
     console.error(error);
   });
 }
+
+export function createOrder(amount, cb) {
+  axios.post(`${ROOT_URL}/createOrder`, {
+    amount,
+  }, getConfig()).then((response) => {
+    cb(response);
+  }).catch((error) => {
+    cb(error, undefined);
+  });
+}

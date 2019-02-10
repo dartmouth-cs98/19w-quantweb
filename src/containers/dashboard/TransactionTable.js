@@ -58,7 +58,7 @@ class TransactionTable extends Component {
         dataIndex: 'amount',
         sorter: (a, b) => a.message.length - b.message.length,
         render: (amount) => {
-          return <Tag color="green" key={amount}>₹{amount}</Tag>;
+          return <Tag color="green" key={amount}>₹{(parseInt(amount, 10).toFixed(2) / 100).toFixed(2)}</Tag>;
         },
       },
       {
@@ -105,4 +105,3 @@ class TransactionTable extends Component {
 }
 
 export default TransactionTable;
-
