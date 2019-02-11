@@ -12,7 +12,7 @@ class DashboardContainer extends React.Component {
     super(props);
     this.state = {
       visible: false,
-      loading: false,
+      confirmLoading: false,
     };
 
     this.getTransactions = this.getTransactions.bind(this);
@@ -30,23 +30,21 @@ class DashboardContainer extends React.Component {
       if (inputData !== undefined) {
         // Iterate over each record and construct a clean object
         return inputData.map((value) => {
-          let { amount, to, from, status } = value;
-          const { paymentId, date } = value;
+          let { amount, to, from } = value;
+          const { paymentId, date, orderId, status } = value;
 
           // TODO: These fields should be set once we move to
           //       our own manual checkout form
           if (!to || !from || !status) {
-            status = 'created';
             to = '';
             from = '';
           }
-          console.log('status');
-          console.log(value);
+
           if (!amount) {
             amount = 10;
           }
 
-          return { paymentId, date, amount, to, from, status };
+          return { paymentId, date, amount, to, from, status, orderId };
         });
       }
       return undefined;
@@ -63,25 +61,19 @@ class DashboardContainer extends React.Component {
       this.setState({
         transactions,
       });
-
-      // Debug line
-      // console.log(transactions);
     });
   }
 
-
   showModal() {
-    console.log('reached');
     this.setState({
       visible: true,
     });
-    console.log(this.state.visible);
   }
 
   handleOk() {
-    this.setState({ loading: true });
+    this.setState({ confirmLoading: true });
     setTimeout(() => {
-      this.setState({ loading: false, visible: false });
+      this.setState({ confirmLoading: false, visible: false });
     }, 3000);
   }
 
@@ -89,21 +81,18 @@ class DashboardContainer extends React.Component {
     this.setState({ visible: false });
   }
 
+  // Function called when payment modal is submitted
   handleCreate() {
+    this.setState({ confirmLoading: true });
+
     const form = this.formRef.props.form;
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
-      createOrder(parseInt(values.amount, 10), this.handleNewTransaction);
+      createOrder((parseInt(values.amount * 100, 10)), this.handleNewTransaction);
 
-
-      console.log('Received values of form: ', values);
       form.resetFields();
-      this.setState({ visible: false });
-
-
-      // e.preventDefault();
     });
   }
 
@@ -124,6 +113,7 @@ class DashboardContainer extends React.Component {
           date: response.data.date,
           status: response.data.status,
           amount: response.data.amount,
+          orderId: response.data.orderId,
         };
         this.setState({
           transactions: [...this.state.transactions, newTransaction],
@@ -133,13 +123,12 @@ class DashboardContainer extends React.Component {
   }
 
   handleNewTransaction(e) {
-    console.log('order entered');
-    console.log(e);
+    this.setState({ confirmLoading: false, visible: false });
 
  // Default options
     const options = {
       key: 'rzp_test_XYB3SORKydGnpK',
-      amount: e.data.amount,
+      amount: (e.data.amount * 100),
       name: 'Test Merchant',
       description: 'Test Payment',
       image: 'https://img.icons8.com/cotton/2x/get-cash.png',
@@ -167,7 +156,6 @@ class DashboardContainer extends React.Component {
     rzp.open();
   }
 
-
   render() {
     console.log('render called');
 
@@ -183,6 +171,7 @@ class DashboardContainer extends React.Component {
             visible={this.state.visible}
             onCancel={this.handleCancel}
             onCreate={this.handleCreate}
+            confirmLoading={this.state.confirmLoading}
           />
           <TransactionTable records={this.processData(this.state.transactions)} />
         </div>

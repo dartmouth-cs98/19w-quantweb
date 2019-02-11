@@ -18,7 +18,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
 
     render() {
       const {
-        visible, onCancel, onCreate, form,
+        visible, onCancel, onCreate, form, confirmLoading,
       } = this.props;
       const { getFieldDecorator } = form;
       return (
@@ -28,6 +28,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
           okText="Submit"
           onCancel={onCancel}
           onOk={onCreate}
+          confirmLoading={confirmLoading}
         >
           <Form layout="vertical">
             <Form.Item

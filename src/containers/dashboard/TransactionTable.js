@@ -46,11 +46,11 @@ class TransactionTable extends Component {
         },
       },
       {
-        title: 'Payment Id',
-        dataIndex: 'paymentId',
+        title: 'Order Id',
+        dataIndex: 'orderId',
         sorter: (a, b) => a.paymenId > b.paymenId,
         render: (id) => {
-          return <Tag color="blue" key={id}>{id.substring(4, id.length)}</Tag>;
+          return <Tag color="blue" key={id}>{id.substring(6, id.length)}</Tag>;
         },
       },
       {
