@@ -44,7 +44,7 @@ class DashboardContainer extends React.Component {
             amount = 10;
           }
 
-          return { paymentId, date, amount, to, from, status, orderId };
+          return { paymentId, date, amount, to, from, status: { date, status }, orderId };
         });
       }
       return undefined;
