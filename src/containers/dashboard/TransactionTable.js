@@ -19,11 +19,13 @@ class TransactionTable extends Component {
     this.getStatusTag = (status) => {
       switch (status) {
         case 'created':
-          return (<Tag color="gold" key={status}>{status}</Tag>);
+          return (<Tag color="gold" key={status}>Pending Payment</Tag>);
         case 'authorized':
           return (<Tag color="orange" key={status}>{status}</Tag>);
+        case 'failed':
+          return (<Tag color="red" key={status}>Payment Failed</Tag>);
         case 'captured':
-          return (<Tag color="cyan" key={status}>{status}</Tag>);
+          return (<Tag color="cyan" key={status}>Transfered</Tag>);
         default:
           return (<Tag key={status}>{status}</Tag>);
       }
