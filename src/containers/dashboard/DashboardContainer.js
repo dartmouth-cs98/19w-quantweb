@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Button } from 'antd';
 import { fetchTransactions, createTransaction } from '../../actions';
 import TransactionTable from './TransactionTable';
-import Nav from '../Nav';
+import InnerNav from '../InnerNav';
 
 class DashboardContainer extends React.Component {
   constructor(props) {
@@ -106,7 +106,7 @@ class DashboardContainer extends React.Component {
   render() {
     return (
       <div>
-        <Nav color="#3c67c3" />
+        <InnerNav color="#3c67c3" />
         <div id="dashboardBody">
           <Button type="primary" id="newTransactionButton" onClick={this.handleNewTransaction}>
             + New Transaction
