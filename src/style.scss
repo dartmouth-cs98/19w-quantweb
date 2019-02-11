@@ -309,6 +309,11 @@ body {
   height: 500px;
 }
 
+.registration-form {
+  //max-width: 300px;
+  padding-right: 120px;
+}
+
 .login-form {
   max-width: 300px;
 }
@@ -320,6 +325,14 @@ body {
 .login-form-button {
   width: 100%;
 }
+
+.test-registration{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 500px;
+}
+
 
 .iconText p {
   font-size: 17px;

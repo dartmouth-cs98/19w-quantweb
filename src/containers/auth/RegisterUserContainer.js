@@ -1,7 +1,10 @@
 import React from 'react';
+import { Row, Col } from 'antd';
+
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { signupUser } from '../../actions';
+
 
 import WrappedRegisterUserForm from './RegisterUserForm';
 import Nav from '../Nav';
@@ -15,8 +18,8 @@ class RegisterUserContainer extends React.Component {
   }
 
   // Call sign up action
-  handleSignUp({ email, password, username, phone }) {
-    this.props.signupUser({ email, password, username, phone }, this.props.history);
+  handleSignUp({ email, password, firstname, lastname, phone }) {
+    this.props.signupUser({ email, password, firstname, lastname, phone }, this.props.history);
   }
 
   render() {
@@ -24,7 +27,14 @@ class RegisterUserContainer extends React.Component {
       <div>
         <Nav color="#3c67c3" />
         <div className="payment-form-container1">
-          <WrappedRegisterUserForm handleSubmit={this.handleSignUp} />
+          <Row id="loginBanner">
+            <Col id="loginImage">
+              <img src="https://i.imgur.com/rIh9lmf.png" alt="loginImg" />
+            </Col>
+            <Col id="loginFormBanner">
+              <WrappedRegisterUserForm handleSubmit={this.handleSignUp} />
+            </Col>
+          </Row>
         </div>
       </div>
     );
