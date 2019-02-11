@@ -116,7 +116,7 @@ class RegisterUserForm extends Component {
                     )}
           </Form.Item>
           <Form.Item style={{ width: '4px' }} {...tailFormItemLayout}>
-            <Button style={{ width: '406px' }} type="primary" htmlType="submit">Register</Button>
+            <Button style={{ width: '406px', 'background-color': '#476C99' }} type="primary" htmlType="submit">Register</Button>
           </Form.Item>
         </Form>
       </div>
