@@ -85,10 +85,20 @@ body {
   position: absolute;
   width: 80px;
   height: 29px;
-  right: 181px;
+  right: 230px;
   top: 25px;
   margin-right: 0.75%;
   border: 0px solid #42EEF8;
+}
+
+#settings_button {
+   position: absolute;
+   width: 31px;
+   height: 31px;
+   right: 180px;
+   top: 25px;
+   margin-right: 0.75%;
+   border: 0px solid #42EEF8;
 }
 
 #bannerSignUp {
@@ -310,6 +320,11 @@ body {
   height: 500px;
 }
 
+.registration-form {
+  //max-width: 300px;
+  padding-right: 120px;
+}
+
 .login-form {
   max-width: 300px;
 }
@@ -321,6 +336,14 @@ body {
 .login-form-button {
   width: 100%;
 }
+
+.test-registration{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 500px;
+}
+
 
 .iconText p {
   font-size: 17px;

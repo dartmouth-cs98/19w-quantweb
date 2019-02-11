@@ -13,6 +13,7 @@ import LogInContainer from './containers/auth/LogInContainer';
 import RegisterUserContainer from './containers/auth/RegisterUserContainer';
 import DashboardContainer from './containers/dashboard/DashboardContainer';
 import FAQ from './containers/landing_page/FAQ';
+import SettingsContainer from './containers/settings/SettingsContainer';
 // import App from './components/app';
 
 // Import main style sheet for website
@@ -49,6 +50,7 @@ const App = (props) => {
           <Route exact path="/faq" component={FAQ} />
           <Route exact path="/login" component={LogInContainer} />
           <Route exact path="/register" component={RegisterUserContainer} />
+          <Route exact path="/settings" component={SettingsContainer} />
           <Route exact path="/dashboard" component={requireAuth(DashboardContainer)} />
           <Route component={FallBack} />
         </Switch>

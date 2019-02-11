@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Button } from 'antd';
 import { fetchTransactions, createTransaction, createOrder } from '../../actions';
 import TransactionTable from './TransactionTable';
-import Nav from '../Nav';
+import InnerNav from '../InnerNav';
 import CollectionCreateForm from './TransactionModal';
 
 class DashboardContainer extends React.Component {
@@ -161,7 +161,7 @@ class DashboardContainer extends React.Component {
 
     return (
       <div>
-        <Nav color="#3c67c3" />
+        <InnerNav color="#3c67c3" />
         <div id="dashboardBody">
           <Button type="primary" id="newTransactionButton" onClick={this.showModal}>
             + New Transaction
