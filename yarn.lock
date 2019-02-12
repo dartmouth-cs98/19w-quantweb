@@ -4622,18 +4622,16 @@ path-type@^2.0.0:
   dependencies:
     pify "^2.0.0"
 
-<<<<<<< HEAD
-pbkdf2-compat@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/pbkdf2-compat/-/pbkdf2-compat-2.0.1.tgz#b6e0c8fa99494d94e0511575802a59a5c142f288"
-  integrity sha1-tuDI+plJTZTgURV1gCpZpcFC8og=
-=======
 payment@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/payment/-/payment-2.3.0.tgz#b2a95e9c3052459647da3926b8b66c553d93098f"
   dependencies:
     qj "~2.0.0"
->>>>>>> 2f6870340457d6f6b746228cf6ab07759bf59a62
+
+pbkdf2-compat@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/pbkdf2-compat/-/pbkdf2-compat-2.0.1.tgz#b6e0c8fa99494d94e0511575802a59a5c142f288"
+  integrity sha1-tuDI+plJTZTgURV1gCpZpcFC8og=
 
 pbkdf2@^3.0.3:
   version "3.0.17"
