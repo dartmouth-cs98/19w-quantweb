@@ -20,10 +20,10 @@ const Landing = (props) => {
                   <h1 id="banner_tag">
                   Cash advances in India are expensive...
                   </h1>
-                  <p>
+                  <p id="sub_text">
                   They dont have to be.
                   </p>
-                  <p>
+                  <p id="sub_text">
                   Convert your credit card to cash while <br /> avoiding expensive bank fees.
                   </p>
                   <button onClick={props.increment} className="menu_item" id="bannerSignUp">Sign Up</button>
