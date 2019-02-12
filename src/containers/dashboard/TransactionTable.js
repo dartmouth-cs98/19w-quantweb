@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Table, Tag } from 'antd';
 import dateFormat from 'dateformat';
+import moment from 'moment';
+//eslint-disable-next-line
+import momentBusinessDays from 'moment-business-days';
 
 class TransactionTable extends Component {
 
@@ -17,13 +20,23 @@ class TransactionTable extends Component {
     console.log(this.props.records);
 
     this.getStatusTag = (status) => {
-      switch (status) {
+      const dateArrival = moment(status.date).businessAdd(3, 'days').format('l');
+      console.log(dateArrival);
+
+
+      switch (status.status) {
         case 'created':
-          return (<Tag color="gold" key={status}>{status}</Tag>);
+          return (<Tag color="gold" key={status}>Pending Payment</Tag>);
         case 'authorized':
           return (<Tag color="orange" key={status}>{status}</Tag>);
+        case 'failed':
+          return (<Tag color="red" key={status}>Payment Failed</Tag>);
         case 'captured':
-          return (<Tag color="cyan" key={status}>{status}</Tag>);
+          return (
+            <span>
+              <Tag color="cyan" key={status.status}>Funds Arriving:</Tag>
+              <Tag color="cyan" key={status.date}>{dateArrival}</Tag>
+            </span>);
         default:
           return (<Tag key={status}>{status}</Tag>);
       }
@@ -46,11 +59,11 @@ class TransactionTable extends Component {
         },
       },
       {
-        title: 'Payment Id',
-        dataIndex: 'paymentId',
+        title: 'Order Id',
+        dataIndex: 'orderId',
         sorter: (a, b) => a.paymenId > b.paymenId,
         render: (id) => {
-          return <Tag color="blue" key={id}>{id.substring(4, id.length)}</Tag>;
+          return <Tag color="blue" key={id}>{id.substring(6, id.length)}</Tag>;
         },
       },
       {
@@ -58,7 +71,7 @@ class TransactionTable extends Component {
         dataIndex: 'amount',
         sorter: (a, b) => a.message.length - b.message.length,
         render: (amount) => {
-          return <Tag color="green" key={amount}>₹{amount}</Tag>;
+          return <Tag color="green" key={amount}>₹{(parseInt(amount, 10).toFixed(2) / 100).toFixed(2)}</Tag>;
         },
       },
       {
@@ -105,4 +118,3 @@ class TransactionTable extends Component {
 }
 
 export default TransactionTable;
-
