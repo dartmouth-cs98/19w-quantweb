@@ -17,6 +17,7 @@ class Nav extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.authenticated.authenticated && !nextProps.user) { this.props.getUser(); }
   }
+
   getAuthButtons(event) {
     if (this.props.authenticated.authenticated === false) {
       return (
@@ -37,6 +38,10 @@ class Nav extends Component {
     }
   }
 
+  scrollPageDown() {
+    window.scrollTo({ top: 1800, behavior: 'smooth' });
+  }
+
   handleLogout(event) {
     this.props.signoutUser(this.props.history, () => {
       window.location.reload();
@@ -49,8 +54,7 @@ class Nav extends Component {
       <div style={{ backgroundColor: this.props.color }}id="nav">
         {this.getAuthButtons()}
         <NavLink to="/faq" className="menu_item" id="FAQ">FAQ</NavLink>
-        <NavLink to="/test" className="menu_item" id="aboutus">About Us</NavLink>
-        <NavLink to="/test" className="menu_item" id="how">How It Works</NavLink>
+        <button onClick={this.scrollPageDown} className="menu_item" id="how">How It Works</button>
         <NavLink to="/">
           <img src="https://i.imgur.com/TN4nDUA.png" alt="logo" id="logo" />
         </NavLink>

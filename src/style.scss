@@ -41,34 +41,42 @@ body {
 }
 
 #banner_tag {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 45px;
+}
+
+#sub_text{
+  font-size: 20px;
 }
 
 #logo {
-  height: 40px;
+  height: 25px;
   position: absolute;
   left: 100px;
-  top: 30px;
+  top: 42px;
+  width: 75px;
 }
 
 #login {
   position: absolute;
-  width: 111px;
-  height: 29px;
+  width: 113px;
+  height: 30px;
   right: 50px;
   top: 25px;
 
-  border: 2px solid #42EEF8;
+  //border: 2px solid #42EEF8;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 40px;
-  background-color: rgba(52, 52, 52, 0);
+  background-color: rgb(66, 238, 248);  color: #FFFFFF;
   color: #FFFFFF;
   // font-family: Inter UI;
   font-style: normal;
   font-weight: normal;
   line-height: normal;
   text-align: center;
+  font-size: 15px;
+
 }
 
 #signup {
@@ -78,6 +86,7 @@ body {
   right: 181px;
   top: 25px;
   border: 0px solid #42EEF8;
+  font-size: 15px;
 }
 
 #dashboard {
@@ -101,14 +110,13 @@ body {
 }
 
 #bannerSignUp {
-  border: 2px solid #42EEF8;
+  //border: 2px solid #42EEF8;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 40px;
-  background-color: rgba(52, 52, 52, 0);
-  color: #FFFFFF;
-  width: 200px;
-  height: 60px;
+  background-color: rgb(66, 238, 248);  color: #FFFFFF;
+  width: 140px;
+  height: 42px;
 }
 
 #FAQ {
@@ -118,24 +126,19 @@ body {
   right: 292px;
   top: 25px;
   border: 0px solid #42EEF8;
-}
+  font-size: 15px;
 
-#aboutus {
-  position: absolute;
-  width: 90px;
-  height: 29px;
-  right: 403px;
-  top: 25px;
-  border: 0px solid #42EEF8;
 }
 
 #how {
   position: absolute;
   width: 105px;
   height: 29px;
-  right: 535px;
-  top: 25px;
+  right: 425px;
+  top: 22px;
   border: 0px solid #42EEF8;
+  font-size: 15px;
+
 }
 
 #firstSection {
@@ -156,11 +159,11 @@ body {
 }
 
 .menu_item {
+  margin-top: 20px;
   font-family: Avenir Next;
   font-style: normal;
-  font-weight: lighter;
+  font-weight: 400;
   line-height: normal;
-
   padding-top: 4px;
 
   border: 0px solid #42EEF8;
