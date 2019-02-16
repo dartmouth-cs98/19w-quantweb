@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button } from 'antd';
-import { fetchTransactions, createTransaction, createOrder } from '../../actions';
+import { fetchTransactions, createTransaction, createOrder, addBank } from '../../actions';
 import TransactionTable from './TransactionTable';
 import InnerNav from '../InnerNav';
 import CollectionCreateForm from './TransactionModal';
+import BankForm from './BankModal';
 
 class DashboardContainer extends React.Component {
   constructor(props) {
@@ -13,6 +14,8 @@ class DashboardContainer extends React.Component {
     this.state = {
       visible: false,
       confirmLoading: false,
+      visibleBank: false,
+      confirmLoadingBank: false,
     };
 
     this.getTransactions = this.getTransactions.bind(this);
@@ -23,6 +26,11 @@ class DashboardContainer extends React.Component {
     this.handleCancel = this.handleCancel.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
     this.saveFormRef = this.saveFormRef.bind(this);
+    this.showBankModal = this.showBankModal.bind(this);
+    this.handleBankOk = this.handleBankOk.bind(this);
+    this.handleBankCancel = this.handleBankCancel.bind(this);
+    this.handleBankCreate = this.handleBankCreate.bind(this);
+    this.saveBankFormRef = this.saveBankFormRef.bind(this);
 
       // Utility method to process transaction data for table
     this.processData = (inputData) => {
@@ -53,6 +61,12 @@ class DashboardContainer extends React.Component {
 
   componentDidMount() {
     this.getTransactions();
+
+    setTimeout(() => {
+      if (!this.props.user.user.bankSet) {
+        this.showBankModal();
+      }
+    }, 2000);
   }
 
   // Utility method to fetch all transactions for current user
@@ -98,6 +112,39 @@ class DashboardContainer extends React.Component {
 
   saveFormRef(formRef) {
     this.formRef = formRef;
+  }
+
+  showBankModal() {
+    this.setState({
+      visibleBank: true,
+    });
+  }
+
+  handleBankOk() {
+    this.setState({ confirmLoadingBank: false, visibleBank: false });
+  }
+
+  handleBankCancel() {
+    this.setState({ visibleBank: false });
+  }
+
+  // Function called when payment modal is submitted
+  handleBankCreate() {
+    this.setState({ confirmLoadingBank: true });
+
+    const form = this.formRefBank.props.form;
+    form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
+      addBank(values.IFCS, values.accountNumber);
+      form.resetFields();
+    });
+    this.setState({ confirmLoadingBank: false, visibleBank: false });
+  }
+
+  saveBankFormRef(formRef) {
+    this.formRefBank = formRef;
   }
 
   // Utility method to handle transaction creation
@@ -173,6 +220,13 @@ class DashboardContainer extends React.Component {
             onCreate={this.handleCreate}
             confirmLoading={this.state.confirmLoading}
           />
+          <BankForm
+            wrappedComponentRef={this.saveBankFormRef}
+            visible={this.state.visibleBank}
+            onCancel={this.handleBankCancel}
+            onCreate={this.handleBankCreate}
+            confirmLoading={this.state.confirmLoadingBank}
+          />
           <TransactionTable records={this.processData(this.state.transactions)} />
         </div>
       </div>
@@ -184,6 +238,7 @@ class DashboardContainer extends React.Component {
 const mapStateToProps = state => (
   {
     authenticated: state.authenticated,
+    user: state.user,
   }
 );
 // react-redux glue -- outputs Container that know state in props

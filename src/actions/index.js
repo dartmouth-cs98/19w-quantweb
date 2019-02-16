@@ -98,3 +98,12 @@ export function createOrder(amount, cb) {
     cb(error, undefined);
   });
 }
+
+export function addBank(IFCS, account) {
+  axios.post(`${ROOT_URL}/addBank`, {
+    IFCS,
+    account,
+  }, getConfig()).catch((error) => {
+    console.log('error');
+  });
+}
