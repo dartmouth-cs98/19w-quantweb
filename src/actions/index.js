@@ -99,10 +99,13 @@ export function createOrder(amount, cb) {
   });
 }
 
-export function addBank(IFCS, account) {
+export function addBank(IFCS, accountNumber, firstname, lastname, email) {
   axios.post(`${ROOT_URL}/addBank`, {
     IFCS,
-    account,
+    accountNumber,
+    firstname,
+    lastname,
+    email,
   }, getConfig()).catch((error) => {
     console.log('error');
   });

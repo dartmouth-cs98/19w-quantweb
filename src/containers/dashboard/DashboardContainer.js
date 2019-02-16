@@ -137,7 +137,11 @@ class DashboardContainer extends React.Component {
       if (err) {
         return;
       }
-      addBank(values.IFCS, values.accountNumber);
+      addBank(values.IFCS,
+        values.accountNumber,
+        this.props.user.user.firstname,
+        this.props.user.user.lastname,
+        this.props.user.user.email);
       form.resetFields();
     });
     this.setState({ confirmLoadingBank: false, visibleBank: false });
