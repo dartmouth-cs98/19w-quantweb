@@ -30,6 +30,7 @@ class Nav extends Component {
       return (
         <div>
           <span className="menu_item" id="logout" onClick={this.handleLogout}>LOG OUT</span>
+          // <NavLink to="/" className="menu_item" id="logout" onClick={this.handleLogout}>LOG OUT</NavLink>
         </div>
       );
       /*eslint-enable */
