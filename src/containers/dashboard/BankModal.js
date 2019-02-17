@@ -12,12 +12,35 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
         accountNumber: '',
         focused: true,
       };
+
+      this.checkIFCS = this.checkIFCS.bind(this);
+    }
+
+    // checkIFCS(rule, value, callback) {
+    //   console.log(value);
+    //   callback();
+    // }
+
+    checkIFCS(rule, value, callback) {
+      console.log(this.state.IFCS);
+
+      // eslint-disable-next-line
+      const re = RegExp('^[A-Za-z]{4}\d{7}$');
+      console.log(value);
+      console.log(re.test(value));
+      RegExp('foo*');
+      if (value.length === 11) {
+        callback();
+      }
+
+      callback('IFCS Format Example: SBIN0000058');
     }
 
     render() {
       const {
         visible, onCancel, onCreate, form, confirmLoading,
       } = this.props;
+
       const { getFieldDecorator } = form;
       return (
         <Modal
@@ -33,7 +56,9 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
               label="Bank IFCS Code"
             >
               {getFieldDecorator('IFCS', {
-                rules: [{ required: true, message: 'Enter Bank IFCS Code' }],
+                rules: [{ required: true }, {
+                  validator: this.checkIFCS,
+                }],
               })(
                 <Input />,
               )}

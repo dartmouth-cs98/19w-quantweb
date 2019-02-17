@@ -105,7 +105,6 @@ class DashboardContainer extends React.Component {
         return;
       }
       createOrder((parseInt(values.amount * 100, 10)), this.handleNewTransaction);
-
       form.resetFields();
     });
   }
