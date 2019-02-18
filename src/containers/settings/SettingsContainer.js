@@ -106,6 +106,13 @@ class DashboardContainer extends React.Component {
     return (
       <div>
         <InnerNav color="#3c67c3" />
+        <form action="/action_page.php" method="get">
+          First name: <input type="text" name="fname" /><br />
+          Last name: <input type="text" name="lname" /><br />
+          Email: <input type="text" name="email" /><br />
+          Phone Number: <input type="text" name="phone" /><br />
+          <input type="submit" value="Update" />
+        </form>
         Settings
       </div>
     );
