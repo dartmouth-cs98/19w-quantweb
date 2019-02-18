@@ -129,6 +129,7 @@ class DashboardContainer extends React.Component {
 
   // Function called when payment modal is submitted
   handleBankCreate() {
+    console.log('bank submit called');
     this.setState({ confirmLoadingBank: true });
 
     const form = this.formRefBank.props.form;
