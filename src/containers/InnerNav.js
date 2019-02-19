@@ -29,8 +29,7 @@ class Nav extends Component {
       /*eslint-disable */
       return (
         <div>
-          <NavLink to="/dashboard" className="menu_item" id="dashboard">Dashboard</NavLink>
-          <span className="menu_item" id="login" onClick={this.handleLogout}>Logout</span>
+          <NavLink to="/" className="menu_item" id="logout" onClick={this.handleLogout}>LOG OUT</NavLink>
         </div>
       );
       /*eslint-enable */
@@ -46,12 +45,12 @@ class Nav extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: this.props.color }}id="nav">
+      <div style={{ backgroundColor: this.props.color }}id="innerNav">
         {this.getAuthButtons()}
-        <NavLink to="/settings" className="menu_item">
-          <img src="https://i.imgur.com/eDcuBY4.png" alt="settings_button" id="settings_button" />
+        <NavLink to="/settings" id="settings_button" className="menu_item">
+          Settings
         </NavLink>
-        <NavLink to="/">
+        <NavLink to="/dashboard">
           <img src="https://i.imgur.com/TN4nDUA.png" alt="logo" id="logo" />
         </NavLink>
       </div>
