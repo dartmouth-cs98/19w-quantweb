@@ -13,7 +13,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
         focused: true,
       };
 
-      this.checkIFCS = this.checkIFCS.bind(this);
+      // this.checkIFCS = this.checkIFCS.bind(this);
     }
 
     // checkIFCS(rule, value, callback) {
@@ -21,16 +21,16 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
     //   callback();
     // }
 
-    checkIFCS(rule, value, callback) {
-      console.log(this.state.IFCS);
-
-      console.log(value);
-      if (value.length === 11) {
-        callback();
-      }
-
-      callback('IFCS Format Example: SBIN0000058');
-    }
+    // checkIFCS(rule, value, callback) {
+    //   console.log(this.state.IFCS);
+    //
+    //   console.log(value);
+    //   if (value.length === 11) {
+    //     callback();
+    //   }
+    //
+    //   callback('IFCS Format Example: SBIN0000058');
+    // }
 
     render() {
       const {
@@ -55,9 +55,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
               label="Bank IFCS Code"
             >
               {getFieldDecorator('IFCS', {
-                rules: [{ required: true }, {
-                  validator: this.checkIFCS,
-                }],
+                rules: [{ required: true }],
               })(
                 <Input />,
               )}
