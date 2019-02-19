@@ -110,3 +110,13 @@ export function addBank(IFCS, accountNumber, firstname, lastname, email) {
     console.log('error');
   });
 }
+
+// export function validateIFCS(IFCS) {
+//   axios.get('https://ifsc.razorpay.com/', {
+//     IFCS,
+//   }, getConfig()).then((response) => {
+//
+//   }).catch((error) => {
+//     console.log('error');
+//   });
+// }

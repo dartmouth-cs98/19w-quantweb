@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Form, Input } from 'antd';
+import { Modal, Form, Input, Button } from 'antd';
 
 
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
@@ -13,7 +13,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
         focused: true,
       };
 
-      this.checkIFCS = this.checkIFCS.bind(this);
+      // this.checkIFCS = this.checkIFCS.bind(this);
     }
 
     // checkIFCS(rule, value, callback) {
@@ -21,20 +21,16 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
     //   callback();
     // }
 
-    checkIFCS(rule, value, callback) {
-      console.log(this.state.IFCS);
-
-      // eslint-disable-next-line
-      const re = RegExp('^[A-Za-z]{4}\d{7}$');
-      console.log(value);
-      console.log(re.test(value));
-      RegExp('foo*');
-      if (value.length === 11) {
-        callback();
-      }
-
-      callback('IFCS Format Example: SBIN0000058');
-    }
+    // checkIFCS(rule, value, callback) {
+    //   console.log(this.state.IFCS);
+    //
+    //   console.log(value);
+    //   if (value.length === 11) {
+    //     callback();
+    //   }
+    //
+    //   callback('IFCS Format Example: SBIN0000058');
+    // }
 
     render() {
       const {
@@ -51,14 +47,15 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
           onOk={onCreate}
           confirmLoading={confirmLoading}
         >
-          <Form layout="vertical">
+          <Form
+            layout="vertical"
+            onSubmit={onCreate}
+          >
             <Form.Item
               label="Bank IFCS Code"
             >
               {getFieldDecorator('IFCS', {
-                rules: [{ required: true }, {
-                  validator: this.checkIFCS,
-                }],
+                rules: [{ required: true }],
               })(
                 <Input />,
               )}
@@ -71,6 +68,9 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
               })(
                 <Input />,
               )}
+            </Form.Item>
+            <Form.Item >
+              <Button type="primary" htmlType="submit">Submit</Button>
             </Form.Item>
           </Form>
         </Modal>
