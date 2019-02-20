@@ -51,11 +51,11 @@ body {
 }
 
 #logo {
-  height: 25px;
+  height: 30px;
+  width: 90px;
   position: absolute;
   left: 100px;
-  top: 42px;
-  width: 75px;
+  top: 23px;
 }
 
 #login {
@@ -102,21 +102,25 @@ body {
   border: 0px solid #42EEF8;
 }
 
+#dropdownLink {
+   position: absolute;
+   right: 134px;
+   top: 20px;
+   border: 0px solid #42EEF8;
+}
+
+
+#dropdownLink svg {
+  width: 32px;
+  height: 32px;
+  fill: #FFFFFF;
+}
+
 #settings_button {
    position: absolute;
    width: 31px;
    height: 31px;
    right: 226px;
-   top: 25px;
-   margin-right: 0.75%;
-   border: 0px solid #42EEF8;
-}
-
-#logout {
-   position: absolute;
-   width: 66px;
-   height: 31px;
-   right: 112px;
    top: 25px;
    margin-right: 0.75%;
    border: 0px solid #42EEF8;
@@ -370,12 +374,12 @@ body {
 }
 
 #nav {
-  height: 100px;
+  height: 74px;
   width: 100vw;
 }
 
 #innerNav {
-  height: 90px;
+  height: 74px;
   width: 100vw;
 }
 

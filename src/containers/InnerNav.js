@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
+import { Menu, Dropdown, Icon } from 'antd';
 import { signoutUser } from '../actions';
 import { getUser } from '../actions/userActions';
 
@@ -18,18 +19,32 @@ class Nav extends Component {
     if (nextProps.authenticated.authenticated && !nextProps.user) { this.props.getUser(); }
   }
   getAuthButtons(event) {
+    const menu = (
+      <Menu>
+        <Menu.Item key="0">
+          <NavLink to="/settings">
+            Settings
+          </NavLink>
+        </Menu.Item>
+        <Menu.Divider />
+        <Menu.Item key="2">
+          <NavLink to="/" onClick={this.handleLogout}>Sign Out</NavLink>
+        </Menu.Item>
+      </Menu>
+    );
     if (this.props.authenticated.authenticated === false) {
       return (
-        <div>
-          <NavLink to="/register" className="menu_item" id="login">Sign Up</NavLink>
-          <NavLink to="/login" className="menu_item" id="signup">Log In</NavLink>
-        </div>
+        <div> Error you are not logged in to access this page </div>
       );
     } else {
       /*eslint-disable */
       return (
-        <div>
-          <NavLink to="/" className="menu_item" id="logout" onClick={this.handleLogout}>LOG OUT</NavLink>
+        <div id="dropdownLink">
+          <Dropdown overlay={menu} trigger={['click']} placement="bottomCenter">
+            <a className="ant-dropdown-link" href="#">
+              <Icon type="user" />
+            </a>
+          </Dropdown>
         </div>
       );
       /*eslint-enable */
@@ -45,11 +60,8 @@ class Nav extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: this.props.color }}id="innerNav">
+      <div style={{ backgroundColor: this.props.color }} id="innerNav">
         {this.getAuthButtons()}
-        <NavLink to="/settings" id="settings_button" className="menu_item">
-          Settings
-        </NavLink>
         <NavLink to="/dashboard">
           <img src="https://i.imgur.com/TN4nDUA.png" alt="logo" id="logo" />
         </NavLink>

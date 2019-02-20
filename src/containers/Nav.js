@@ -37,10 +37,11 @@ class Nav extends Component {
       /*eslint-enable */
     }
   }
-
+  /*eslint-disable */
   scrollPageDown() {
     window.scrollTo({ top: 1800, behavior: 'smooth' });
   }
+  /*eslint-enable */
 
   handleLogout(event) {
     this.props.signoutUser(this.props.history, () => {
