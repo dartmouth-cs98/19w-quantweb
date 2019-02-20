@@ -208,8 +208,6 @@ class DashboardContainer extends React.Component {
   }
 
   render() {
-    console.log('render called');
-
     return (
       <div>
         <InnerNav color="#3c67c3" />
