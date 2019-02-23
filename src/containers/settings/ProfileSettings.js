@@ -1,38 +1,20 @@
-import React, { Component } from 'react';
-import { Form, Input, Button } from 'antd';// import { Redirect } from 'react-router-dom';
+import React from 'react';
+import {
+ Form, Input, Button,
+} from 'antd';
 
-class ProfileSettings extends Component {
-
+class ProfileSettings extends React.Component {
 
   constructor(props) {
-    super();
-    this.state = {
-      confirmDirty: false,
-      autoCompleteResult: [],
-      fileName: props.fileName,
-      redirect: false,
-    };
-
-    this.onChange = this.onChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    super(props);
+    this.state = {};
   }
 
-  onChange(value) {
-    this.setState({ x: 1 });
-    console.log('changed', value);
+  componentDidMount() {
   }
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-        this.props.handleSubmit(values);
-      }
-    });
-  }
+
 
   render() {
-    // const { autoCompleteResult } = this.state;
     const { getFieldDecorator } = this.props.form;
 
     const formItemLayout = {
@@ -58,36 +40,32 @@ class ProfileSettings extends Component {
         },
       },
     };
-
     return (
-      <div id="#profileSettings">
-        <h1 id="registrationHeader"> User Profile </h1>
-        <Form onSubmit={this.handleSubmit} className="login-form1">
-          <div layout="inline">
-            <Form.Item style={{ paddingBottom: '20px', paddingTop: '5px' }} {...formItemLayout} >
-              {getFieldDecorator('firstname', {
-                rules: [{
-                  required: true,
-                  message: 'Please input First Name',
-                }],
-              })(
-                <Input style={{ width: '165%' }} placeholder="First name" />,
-              )}
-            </Form.Item>
-            <Form.Item style={{ paddingBottom: '20px', paddingTop: '5px', paddingLeft: '34px' }} {...formItemLayout} >
-              {getFieldDecorator('lastname', {
-                rules: [{
-                  required: true,
-                  message: 'Please input Last Name',
-                }],
-              })(
-                <Input style={{ width: '165%' }} placeholder="Last name" />,
-              )}
-            </Form.Item>
-          </div>
+      <div className="test-registration">
+        <Form onSubmit={this.handleSubmit} layout="inline" className="login-form1">
+          <Form.Item style={{ 'padding-bottom': '20px', 'padding-top': '5px' }} {...formItemLayout} >
+            {getFieldDecorator('firstname', {
+              rules: [{
+                required: true,
+                message: 'Please input First Name',
+              }],
+            })(
+              <Input style={{ width: '165%' }} placeholder="First name" />,
+            )}
+          </Form.Item>
+          <Form.Item style={{ 'padding-bottom': '20px', 'padding-top': '5px', 'padding-left': '34px' }} {...formItemLayout} >
+            {getFieldDecorator('lastname', {
+              rules: [{
+                required: true,
+                message: 'Please input Last Name',
+              }],
+            })(
+              <Input style={{ width: '165%' }} placeholder="Last name" />,
+            )}
+          </Form.Item>
         </Form>
         <Form onSubmit={this.handleSubmit} className="registration-form">
-          <Form.Item style={{ paddingRight: '104px' }} {...formItemLayout} className="registration-form">
+          <Form.Item style={{ 'padding-right': '104px' }} {...formItemLayout} className="registration-form">
             {getFieldDecorator('email', {
               rules: [{
                 type: 'email', message: 'The input is not valid E-mail!',
@@ -117,7 +95,7 @@ class ProfileSettings extends Component {
                     )}
           </Form.Item>
           <Form.Item style={{ width: '4px' }} {...tailFormItemLayout}>
-            <Button style={{ width: '406px', 'background-color': '#476C99' }} type="primary" htmlType="submit">Save</Button>
+            <Button style={{ width: '406px', 'background-color': '#476C99' }} type="primary" htmlType="submit">Update</Button>
           </Form.Item>
         </Form>
       </div>
@@ -125,6 +103,5 @@ class ProfileSettings extends Component {
   }
 }
 
-const ProfileSettingsInstance = Form.create()(ProfileSettings);
-
-export default ProfileSettingsInstance;
+const SettingsFormInstance = Form.create()(ProfileSettings);
+export default SettingsFormInstance;
