@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-// import { Button } from 'antd';
 import SettingsBody from './SettingsBody';
 import { fetchTransactions, createTransaction } from '../../actions';
 import InnerNav from '../InnerNav';
@@ -110,15 +109,6 @@ class SettingsContainer extends React.Component {
         <InnerNav color="#3c67c3" />
         <SettingsBody />
       </div>
-      //   <form action="/action_page.php" method="get">
-      //     First name: <input type="text" name="fname" /><br />
-      //     Last name: <input type="text" name="lname" /><br />
-      //     Email: <input type="text" name="email" /><br />
-      //     Phone Number: <input type="text" name="phone" /><br />
-      //     <input type="submit" value="Update" />
-      //   </form>
-      //   Settings
-      // </div>
     );
   }
 }

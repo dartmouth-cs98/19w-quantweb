@@ -2,6 +2,7 @@ import React from 'react';
 import {
  Form, Input, Button,
 } from 'antd';
+import { connect } from 'react-redux';
 
 class ProfileSettings extends React.Component {
 
@@ -40,21 +41,25 @@ class ProfileSettings extends React.Component {
         },
       },
     };
+
+    const user = this.props.user.user;
     return (
       <div className="test-registration">
         <Form onSubmit={this.handleSubmit} layout="inline" className="login-form1">
           <Form.Item style={{ 'padding-bottom': '20px', 'padding-top': '5px' }} {...formItemLayout} >
             {getFieldDecorator('firstname', {
+              initialValue: user.firstname,
               rules: [{
                 required: true,
                 message: 'Please input First Name',
               }],
             })(
-              <Input style={{ width: '165%' }} placeholder="First name" />,
+              <Input style={{ width: '165%' }} />,
             )}
           </Form.Item>
           <Form.Item style={{ 'padding-bottom': '20px', 'padding-top': '5px', 'padding-left': '34px' }} {...formItemLayout} >
             {getFieldDecorator('lastname', {
+              initialValue: user.lastname,
               rules: [{
                 required: true,
                 message: 'Please input Last Name',
@@ -67,6 +72,7 @@ class ProfileSettings extends React.Component {
         <Form onSubmit={this.handleSubmit} className="registration-form">
           <Form.Item style={{ 'padding-right': '104px' }} {...formItemLayout} className="registration-form">
             {getFieldDecorator('email', {
+              initialValue: user.email,
               rules: [{
                 type: 'email', message: 'The input is not valid E-mail!',
               }, {
@@ -89,6 +95,7 @@ class ProfileSettings extends React.Component {
           </Form.Item>
           <Form.Item {...formItemLayout} >
             {getFieldDecorator('phone', {
+              initialValue: user.phone,
               rules: [{ required: true, message: 'Please input your phone number!' }],
             })(
               <Input style={{ width: '210%' }} placeholder="Phone Number" />,
@@ -103,5 +110,12 @@ class ProfileSettings extends React.Component {
   }
 }
 
+const mapStateToProps = state => (
+  {
+    authenticated: state.authenticated,
+    user: state.user,
+  }
+);
+
 const SettingsFormInstance = Form.create()(ProfileSettings);
-export default SettingsFormInstance;
+export default connect(mapStateToProps)(SettingsFormInstance);
