@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 import { ActionTypes } from './actions';
 import requireAuth from './components/requireAuth';
+import loginIfAuthed from './components/loginIfAuthed';
 
 import Landing from './containers/landing_page/Landing';
 import LogInContainer from './containers/auth/LogInContainer';
@@ -46,11 +47,11 @@ const App = (props) => {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/faq" component={FAQ} />
-          <Route exact path="/login" component={LogInContainer} />
-          <Route exact path="/register" component={RegisterUserContainer} />
-          <Route exact path="/settings" component={SettingsContainer} />
+          <Route exact path="/" component={loginIfAuthed(Landing)} />
+          <Route exact path="/faq" component={loginIfAuthed(FAQ)} />
+          <Route exact path="/login" component={loginIfAuthed(LogInContainer)} />
+          <Route exact path="/register" component={loginIfAuthed(RegisterUserContainer)} />
+          <Route exact path="/settings" component={requireAuth(SettingsContainer)} />
           <Route exact path="/dashboard" component={requireAuth(DashboardContainer)} />
           <Route component={FallBack} />
         </Switch>
