@@ -42,7 +42,7 @@ class ProfileSettings extends React.Component {
     };
     return (
       <div className="test-registration">
-        <Form onSubmit={this.handleSubmit} layout="inline" className="login-form1">
+        <Form onSubmit={this.handleSubmit} layout="inline" className="settings-form">
           <Form.Item style={{ 'padding-bottom': '20px', 'padding-top': '5px' }} {...formItemLayout} >
             {getFieldDecorator('firstname', {
               rules: [{

@@ -370,6 +370,16 @@ body {
   height: 500px;
 }
 
+#bank-settings-form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 500px;
+}
+
+#bank-settings-form button {
+  background-color: #476C99;
+}
 
 .iconText p {
   font-size: 17px;
@@ -442,8 +452,12 @@ body {
   margin-top: 50px;
 }
 
-#registrationHeader{
+#registrationHeader {
   margin-top: 50px;
+}
+
+.settings-form {
+  margin-top: 50px
 }
 
 .active-accordion{
