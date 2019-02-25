@@ -5,14 +5,15 @@ export default function (ComposedComponent) {
   class requireAuth extends React.Component {
     // your various component lifecycle methods
     componentWillMount() {
-      if (this.props.authenticated.authenticated === false) {
-        this.props.history.push('/login');
+      console.log('loginIfAuthed');
+      if (this.props.authenticated.authenticated === true) {
+        this.props.history.push('/dashboard');
       }
     }
 
     componentWillUpdate(nextProps) {
-      if (nextProps.authenticated === false) {
-        this.props.history.push('/login');
+      if (nextProps.authenticated === true) {
+        this.props.history.push('/dashboard');
       }
     }
 
