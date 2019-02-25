@@ -109,11 +109,15 @@ body {
    border: 0px solid #42EEF8;
 }
 
-
 #dropdownLink svg {
   width: 32px;
   height: 32px;
   fill: #FFFFFF;
+}
+
+.ant-layout-header {
+  visibility: hidden;
+  height: 40px;
 }
 
 #settings_button {
@@ -154,7 +158,7 @@ body {
   width: 115px;
   height: 29px;
   right: 425px;
-  top: 8px;
+  top: 9px;
   border: 0px solid #42EEF8;
   font-size: 16px;
   font-weight: 640;
@@ -366,6 +370,16 @@ body {
   height: 500px;
 }
 
+#bank-settings-form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 500px;
+}
+
+#bank-settings-form button {
+  background-color: #476C99;
+}
 
 .iconText p {
   font-size: 17px;
@@ -438,8 +452,12 @@ body {
   margin-top: 50px;
 }
 
-#registrationHeader{
+#registrationHeader {
   margin-top: 50px;
+}
+
+.settings-form {
+  margin-top: 50px
 }
 
 .active-accordion{
@@ -493,4 +511,8 @@ body {
   padding-left: 10%;
   padding-right: 10%;
   padding-top: 1%;
+}
+
+#profileSettings {
+  layout: inline;
 }

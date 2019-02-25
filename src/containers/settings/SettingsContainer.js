@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-// import { Button } from 'antd';
+import SettingsBody from './SettingsBody';
 import { fetchTransactions, createTransaction } from '../../actions';
 import InnerNav from '../InnerNav';
 
-class DashboardContainer extends React.Component {
+
+class SettingsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -106,14 +107,7 @@ class DashboardContainer extends React.Component {
     return (
       <div>
         <InnerNav color="#3c67c3" />
-        <form action="/action_page.php" method="get">
-          First name: <input type="text" name="fname" /><br />
-          Last name: <input type="text" name="lname" /><br />
-          Email: <input type="text" name="email" /><br />
-          Phone Number: <input type="text" name="phone" /><br />
-          <input type="submit" value="Update" />
-        </form>
-        Settings
+        <SettingsBody />
       </div>
     );
   }
@@ -127,4 +121,4 @@ const mapStateToProps = state => (
 );
 // react-redux glue -- outputs Container that know state in props
 // new way to connect with react router 4
-export default withRouter(connect(mapStateToProps, { })(DashboardContainer));
+export default withRouter(connect(mapStateToProps, { })(SettingsContainer));
