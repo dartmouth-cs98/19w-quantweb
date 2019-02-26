@@ -176,6 +176,7 @@ class RegisterUserForm extends Component {
               <Input
                 className="registrationInput"
                 addonBefore={prefixSelector}
+                placeholder="Enter phone number"
               />,
             )}
           </Form.Item>
