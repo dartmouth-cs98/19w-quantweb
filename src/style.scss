@@ -348,7 +348,7 @@ body {
 
 .registration-form {
   //max-width: 300px;
-  padding-right: 120px;
+  padding-right: 235px;
 }
 
 .login-form {
@@ -367,7 +367,7 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center;
-  height: 500px;
+  height: 530px;
 }
 
 #bank-settings-form {
@@ -453,7 +453,7 @@ body {
 }
 
 #registrationHeader {
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .settings-form {
@@ -515,4 +515,45 @@ body {
 
 #profileSettings {
   layout: inline;
+}
+
+
+.ant-form-explain {
+  width: 180px;
+}
+
+.ant-form-explain {
+  width: 180px;
+}
+
+.regAgreement {
+  padding-left: 10%;
+}
+
+#registrationNames {
+  display: flex;
+  justify-content: space-between;
+}
+
+#registrationForm {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 500px;
+}
+
+.registrationInput {
+  width: 150%;
+}
+
+.registrationButton {
+  margin-left: 39%;
+}
+
+.nameFields {
+  width: 150px;
+}
+
+.ant-form-horizontal {
+  width: 350px;
 }
