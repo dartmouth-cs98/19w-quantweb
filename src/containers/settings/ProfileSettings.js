@@ -3,17 +3,32 @@ import {
  Form, Input, Button,
 } from 'antd';
 import { connect } from 'react-redux';
+import { updateUser } from '../../actions';
 
 class ProfileSettings extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {};
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+        this.props.updateUser(values, {});
+      }
+    });
+  }
+  // // Call sign up action
+  // handleSignUp({ email, password, firstname, lastname, phone }) {
+  //   this.props.signupUser({ email, password, firstname, lastname, phone }, this.props.history);
+  // }
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -117,5 +132,6 @@ const mapStateToProps = state => (
   }
 );
 
+
 const SettingsFormInstance = Form.create()(ProfileSettings);
-export default connect(mapStateToProps)(SettingsFormInstance);
+export default connect(mapStateToProps, { updateUser })(SettingsFormInstance);

@@ -63,6 +63,27 @@ export function signupUser({ email, password, firstname, lastname, phone }, hist
   };
 }
 
+export function updateUser({ email, password, firstname, lastname, phone }, history) {
+  // takes in an object with email, password, firstname, lastname, and phone number (minimal user object)
+  // returns a thunk method that takes dispatch as an argument (just like our create post method really)
+  // does an axios.post on the /updateUser endpoint (only difference from above)
+  // on success does:
+  //  dispatch({ type: ActionTypes.AUTH_USER });
+  //  localStorage.setItem('token', response.data.token);
+  // on error should dispatch(authError(`Sign Up Failed: ${error.response.data}`));
+  console.log({ email, password, firstname, lastname, phone });
+  return (dispatch) => {
+    axios.post(`${ROOT_URL}/updateUser`, { email, password, phone, firstname, lastname }, getConfig()).then((response) => {
+      localStorage.setItem('token', response.data.user.token);
+      dispatch({ type: ActionTypes.AUTH_USER, payload: true });
+      history.push('/dashboard');
+    }).catch((error) => {
+      console.log(`auth failed ${error}`);
+      dispatch(authError(`Update User Failed: ${error}`));
+    });
+  };
+}
+
 // Delete auth token
 export function signoutUser(history) {
   return (dispatch) => {
