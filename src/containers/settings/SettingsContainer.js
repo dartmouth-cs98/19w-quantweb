@@ -117,6 +117,7 @@ class SettingsContainer extends React.Component {
 const mapStateToProps = state => (
   {
     authenticated: state.authenticated,
+    user: state.user,
   }
 );
 // react-redux glue -- outputs Container that know state in props

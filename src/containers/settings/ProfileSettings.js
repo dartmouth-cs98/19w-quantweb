@@ -41,7 +41,16 @@ class ProfileSettings extends React.Component {
         },
       },
     };
-    const user = this.props.user.user;
+
+    // Get user
+    let user;
+    if (this.props.user.user) {
+      user = this.props.user.user;
+    } else {
+      user = { firstname: '', lastname: '', email: '' };
+    }
+
+
     return (
       <div className="test-registration">
         <Form onSubmit={this.handleSubmit} layout="inline" className="settings-form">
@@ -112,6 +121,7 @@ class ProfileSettings extends React.Component {
 const mapStateToProps = state => (
   {
     authenticated: state.authenticated,
+    user: state.user,
   }
 );
 
