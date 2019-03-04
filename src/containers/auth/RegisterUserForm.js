@@ -89,7 +89,7 @@ class RegisterUserForm extends Component {
                 rules: [
                   {
                     required: true,
-                    message: 'Please input your first name!',
+                    message: 'Missing first name!',
                     whitespace: true,
                   },
                 ],
@@ -100,7 +100,7 @@ class RegisterUserForm extends Component {
                 rules: [
                   {
                     required: true,
-                    message: 'Please input your last name!',
+                    message: 'Missing last name!',
                     whitespace: true,
                   },
                 ],
