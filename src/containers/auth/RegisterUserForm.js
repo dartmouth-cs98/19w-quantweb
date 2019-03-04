@@ -85,7 +85,7 @@ class RegisterUserForm extends Component {
         <Form onSubmit={this.handleSubmit}>
           <div id="registrationNames">
             <Form.Item {...formItemLayout}>
-              {getFieldDecorator('firstName', {
+              {getFieldDecorator('firstname', {
                 rules: [
                   {
                     required: true,
@@ -96,7 +96,7 @@ class RegisterUserForm extends Component {
               })(<Input style={{ width: '165px' }} placeholder="First name" />)}
             </Form.Item>
             <Form.Item {...formItemLayout}>
-              {getFieldDecorator('lastName', {
+              {getFieldDecorator('lastname', {
                 rules: [
                   {
                     required: true,

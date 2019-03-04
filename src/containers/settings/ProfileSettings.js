@@ -41,7 +41,6 @@ class ProfileSettings extends React.Component {
         },
       },
     };
-
     const user = this.props.user.user;
     return (
       <div className="test-registration">
@@ -113,7 +112,6 @@ class ProfileSettings extends React.Component {
 const mapStateToProps = state => (
   {
     authenticated: state.authenticated,
-    user: state.user,
   }
 );
 

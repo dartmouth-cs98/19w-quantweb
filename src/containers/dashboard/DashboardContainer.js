@@ -129,7 +129,7 @@ class DashboardContainer extends React.Component {
 
   // Function called when payment modal is submitted
   handleBankCreate() {
-    console.log('bank submit called');
+    // console.log('bank submit called');
     this.setState({ confirmLoadingBank: true });
 
     const form = this.formRefBank.props.form;
@@ -137,6 +137,7 @@ class DashboardContainer extends React.Component {
       if (err) {
         return;
       }
+
       addBank(values.IFCS,
         values.accountNumber,
         this.props.user.user.firstname,
@@ -185,8 +186,8 @@ class DashboardContainer extends React.Component {
       image: 'https://img.icons8.com/cotton/2x/get-cash.png',
       order_id: e.data.orderId,
       handler: (response) => {
-        console.log('adding paymentID');
-        console.log(response);
+        // console.log('adding paymentID');
+        // console.log(response);
         this.handleCreateTransaction(response.razorpay_payment_id, response.razorpay_order_id);
       },
       prefill: {
@@ -208,6 +209,7 @@ class DashboardContainer extends React.Component {
   }
 
   render() {
+    console.log(this.props.user);
     return (
       <div>
         <InnerNav color="#3c67c3" />
