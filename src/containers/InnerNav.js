@@ -23,12 +23,12 @@ class Nav extends Component {
       <Menu>
         <Menu.Item key="0">
           <NavLink to="/settings">
-            Settings
+            <Icon type="setting" /> Settings
           </NavLink>
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="2">
-          <NavLink to="/" onClick={this.handleLogout}>Sign Out</NavLink>
+          <NavLink to="/" onClick={this.handleLogout}><Icon type="poweroff" /> Sign Out</NavLink>
         </Menu.Item>
       </Menu>
     );
