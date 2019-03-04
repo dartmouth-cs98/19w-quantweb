@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button } from 'antd';
+import { Button, Icon } from 'antd';
 import { fetchTransactions, createTransaction, createOrder, addBank } from '../../actions';
 import TransactionTable from './TransactionTable';
 import InnerNav from '../InnerNav';
@@ -213,7 +213,7 @@ class DashboardContainer extends React.Component {
         <InnerNav color="#3c67c3" />
         <div id="dashboardBody">
           <Button type="primary" id="newTransactionButton" onClick={this.showModal}>
-            + New Transaction
+            <Icon type="plus" /> New Transaction
           </Button>
           <CollectionCreateForm
             wrappedComponentRef={this.saveFormRef}
