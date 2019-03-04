@@ -1,6 +1,6 @@
 import React from 'react';
 import {
- Form, Input, Button,
+ Form, Input, Button, Icon,
 } from 'antd';
 import { connect } from 'react-redux';
 
@@ -16,6 +16,14 @@ class ProfileSettings extends React.Component {
 
 
   render() {
+    if (!this.props.user.user) {
+      return (
+        <div id="loadingIconForSettings">
+          <Icon type="loading" style={{ fontSize: 40 }} spin />
+        </div>
+      );
+    }
+
     const { getFieldDecorator } = this.props.form;
 
     const formItemLayout = {
@@ -43,12 +51,13 @@ class ProfileSettings extends React.Component {
     };
 
     // Get user
-    let user;
-    if (this.props.user.user) {
-      user = this.props.user.user;
-    } else {
-      user = { firstname: '', lastname: '', email: '' };
-    }
+    const user = this.props.user.user;
+    // let user;
+    // if (this.props.user.user) {
+    //   user = this.props.user.user;
+    // } else {
+    //   user = { firstname: '', lastname: '', email: '' };
+    // }
 
 
     return (

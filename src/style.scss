@@ -557,3 +557,10 @@ body {
 .ant-form-horizontal {
   width: 350px;
 }
+
+#loadingIconForSettings {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
