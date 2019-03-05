@@ -30,18 +30,18 @@ class Nav extends Component {
       /*eslint-disable */
       return (
         <div>
-          <NavLink to="/dashboard" className="menu_item" id="dashboard">Dashboard</NavLink>
           <span className="menu_item" id="login" onClick={this.handleLogout}>Logout</span>
         </div>
       );
       /*eslint-enable */
     }
   }
-
+  /*eslint-disable */
   scrollPageDown() {
     window.scrollTo({ top: 1800, behavior: 'smooth' });
     console.log(this);
   }
+  /*eslint-enable */
 
   handleLogout(event) {
     this.props.signoutUser(this.props.history, () => {

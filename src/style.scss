@@ -51,11 +51,11 @@ body {
 }
 
 #logo {
-  height: 25px;
+  height: 30px;
+  width: 90px;
   position: absolute;
   left: 100px;
-  top: 42px;
-  width: 75px;
+  top: 23px;
 }
 
 #login {
@@ -63,7 +63,7 @@ body {
   width: 113px;
   height: 33px;
   right: 50px;
-  top: 25px;
+  top: 11px;
 
   //border: 2px solid #42EEF8;
   box-sizing: border-box;
@@ -85,7 +85,7 @@ body {
   width: 80px;
   height: 29px;
   right: 181px;
-  top: 25px;
+  top: 11px;
   border: 0px solid #42EEF8;
   font-size: 16px;
   font-weight: 640;
@@ -102,21 +102,29 @@ body {
   border: 0px solid #42EEF8;
 }
 
+#dropdownLink {
+   position: absolute;
+   right: 134px;
+   top: 20px;
+   border: 0px solid #42EEF8;
+}
+
+#dropdownLink svg {
+  width: 32px;
+  height: 32px;
+  fill: #FFFFFF;
+}
+
+.ant-layout-header {
+  visibility: hidden;
+  height: 40px;
+}
+
 #settings_button {
    position: absolute;
    width: 31px;
    height: 31px;
    right: 226px;
-   top: 25px;
-   margin-right: 0.75%;
-   border: 0px solid #42EEF8;
-}
-
-#logout {
-   position: absolute;
-   width: 66px;
-   height: 31px;
-   right: 112px;
    top: 25px;
    margin-right: 0.75%;
    border: 0px solid #42EEF8;
@@ -139,7 +147,7 @@ body {
   width: 70px;
   height: 29px;
   right: 292px;
-  top: 25px;
+  top: 11px;
   border: 0px solid #42EEF8;
   font-size: 16px;
   font-weight: 640;
@@ -150,7 +158,7 @@ body {
   width: 115px;
   height: 29px;
   right: 425px;
-  top: 22px;
+  top: 9px;
   border: 0px solid #42EEF8;
   font-size: 16px;
   font-weight: 640;
@@ -340,7 +348,7 @@ body {
 
 .registration-form {
   //max-width: 300px;
-  padding-right: 120px;
+  padding-right: 235px;
 }
 
 .login-form {
@@ -359,9 +367,19 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center;
+  height: 530px;
+}
+
+#bank-settings-form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
   height: 500px;
 }
 
+#bank-settings-form button {
+  background-color: #476C99;
+}
 
 .iconText p {
   font-size: 17px;
@@ -370,12 +388,12 @@ body {
 }
 
 #nav {
-  height: 100px;
+  height: 74px;
   width: 100vw;
 }
 
 #innerNav {
-  height: 90px;
+  height: 74px;
   width: 100vw;
 }
 
@@ -434,8 +452,12 @@ body {
   margin-top: 50px;
 }
 
-#registrationHeader{
-  margin-top: 50px;
+#registrationHeader {
+  margin-top: 10px;
+}
+
+.settings-form {
+  margin-top: 50px
 }
 
 .active-accordion{
@@ -489,6 +511,51 @@ body {
   padding-left: 10%;
   padding-right: 10%;
   padding-top: 1%;
+}
+
+#profileSettings {
+  layout: inline;
+}
+
+
+.ant-form-explain {
+  width: 180px;
+}
+
+.ant-form-explain {
+  width: 180px;
+}
+
+.regAgreement {
+  padding-left: 10%;
+}
+
+#registrationNames {
+  display: flex;
+  justify-content: space-between;
+}
+
+#registrationForm {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 500px;
+}
+
+.registrationInput {
+  width: 150%;
+}
+
+.registrationButton {
+  margin-left: 39%;
+}
+
+.nameFields {
+  width: 150px;
+}
+
+.ant-form-horizontal {
+  width: 350px;
 }
 
 #transactionSwitch {

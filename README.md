@@ -1,12 +1,15 @@
 # Cash Advance Service Frontend
 
-Frontend for credit card cash advance service application. Users are able to charge their credit cards a certain amount and then receive these funds in their bank account after a given time. See https://github.com/dartmouth-cs98/19w-quantweb-backend for the backend.
+Frontend for credit card cash advance service application for Indian consumers. Users are able to charge their credit cards a certain amount and then receive these funds in their bank account after a given time. See https://github.com/dartmouth-cs98/19w-quantweb-backend for the backend.
 
 ## Architecture
 
 1) React framework 
 2) RazorPay API
 3) Backend https://github.com/dartmouth-cs98/19w-quantweb-backend 
+4) AntDesign for React UI framwork
+5) Redux for React data management framework 
+6) Passport Authentication 
 
 ## Setup
 
