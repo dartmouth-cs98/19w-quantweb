@@ -47,15 +47,35 @@ class PortfolioContainer extends Component {
       datasets: [
         {
           label: 'INDA - iShares MSCI India ETF',
-          fillColor: 'rgba(220,220,220,0.2)',
-          strokeColor: 'rgba(220,220,220,1)',
-          pointColor: 'rgba(220,220,220,1)',
-          pointStrokeColor: '#fff',
-          pointHighlightFill: '#fff',
-          pointHighlightStroke: 'rgba(220,220,220,1)',
+          backgroundColor: [
+            '#FFFFFF',
+          ],
+          borderColor: [
+            '#2FD09F',
+          ],
+          borderWidth: 2,
           data: this.state.prices,
         },
       ],
+    };
+    const options = {
+      scales: {
+        xAxes: [{
+          gridLines: {
+            color: 'rgba(0, 0, 0, 0)',
+          },
+          type: 'time',
+          ticks: {
+            autoSkip: false,
+            maxTicksLimit: 20,
+          },
+        }],
+        yAxes: [{
+          gridLines: {
+            color: 'rgba(0, 0, 0, 0)',
+          },
+        }],
+      },
     };
 
     let Tag = (<div />);
@@ -79,7 +99,7 @@ class PortfolioContainer extends Component {
         <center><span id="tableTitle">Portfolio</span></center>
         {Tag}
         <div id="mainTable" >
-          <Line data={data} />
+          <Line data={data} options={options} />
         </div>
       </div>
     );
@@ -94,4 +114,3 @@ const mapStateToProps = state => (
 );
 
 export default withRouter(connect(mapStateToProps, { })(PortfolioContainer));
-// export default PortfolioContainer;

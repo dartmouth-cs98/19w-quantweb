@@ -79,28 +79,28 @@ class TransactionTable extends Component {
           return <Tag color="green" key={amount}>₹{(parseInt(amount * 0.94, 10).toFixed(2) / 100).toFixed(2)}</Tag>;
         },
       },
-      {
-        title: 'From',
-        dataIndex: 'from',
-        sorter: (a, b) => a.tags.length - b.tags.length,
-        render: (from) => {
-          if (from === '') {
-            return <Tag key={from}>N/A</Tag>;
-          }
-          return <Tag key={from}>{from}</Tag>;
-        },
-      },
-      {
-        title: 'To',
-        dataIndex: 'to',
-        sorter: (a, b) => a.message.length - b.message.length,
-        render: (to) => {
-          if (to === '') {
-            return <Tag key={to}>N/A</Tag>;
-          }
-          return <Tag key={to}>{to}</Tag>;
-        },
-      },
+      // {
+      //   title: 'From',
+      //   dataIndex: 'from',
+      //   sorter: (a, b) => a.tags.length - b.tags.length,
+      //   render: (from) => {
+      //     if (from === '') {
+      //       return <Tag key={from}>N/A</Tag>;
+      //     }
+      //     return <Tag key={from}>{from}</Tag>;
+      //   },
+      // },
+      // {
+      //   title: 'To',
+      //   dataIndex: 'to',
+      //   sorter: (a, b) => a.message.length - b.message.length,
+      //   render: (to) => {
+      //     if (to === '') {
+      //       return <Tag key={to}>N/A</Tag>;
+      //     }
+      //     return <Tag key={to}>{to}</Tag>;
+      //   },
+      // },
       {
         title: 'Status',
         dataIndex: 'status',
