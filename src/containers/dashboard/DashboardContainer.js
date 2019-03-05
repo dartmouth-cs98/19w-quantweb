@@ -224,7 +224,6 @@ class DashboardContainer extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
     let content;
 
     if (this.state.showTransaction) {
@@ -233,8 +232,6 @@ class DashboardContainer extends React.Component {
       content = <PortfolioContainer />;
     }
 
-=======
->>>>>>> e7b1b4b1406e2f92ac8a7271a21e4392d951c8ad
     return (
       <div>
         <InnerNav color="#3c67c3" />
