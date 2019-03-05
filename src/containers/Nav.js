@@ -40,6 +40,7 @@ class Nav extends Component {
 
   scrollPageDown() {
     window.scrollTo({ top: 1800, behavior: 'smooth' });
+    console.log(this);
   }
 
   handleLogout(event) {

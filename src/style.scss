@@ -490,3 +490,25 @@ body {
   padding-right: 10%;
   padding-top: 1%;
 }
+
+#transactionSwitch {
+  width: 120px;
+  outline: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  margin-left: 150px;
+  margin-top: 30px;
+}
+
+#portfolioSwitch {
+  width: 80px;
+  outline: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#transactionDiv {
+  float: right;
+  display: flex;
+  flex-direction: row-reverse;
+}

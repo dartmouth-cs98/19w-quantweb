@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Tag } from 'antd';
 import dateFormat from 'dateformat';
-import moment from 'moment';
-//eslint-disable-next-line
-import momentBusinessDays from 'moment-business-days';
+import moment from 'moment-business-days';
 
 class TransactionTable extends Component {
 
@@ -21,7 +19,6 @@ class TransactionTable extends Component {
 
     this.getStatusTag = (status) => {
       const dateArrival = moment(status.date).businessAdd(3, 'days').format('l');
-      console.log(dateArrival);
 
 
       switch (status.status) {
@@ -32,6 +29,13 @@ class TransactionTable extends Component {
         case 'failed':
           return (<Tag color="red" key={status}>Payment Failed</Tag>);
         case 'captured':
+          if (moment(dateArrival).isBefore()) {
+            return (
+              <span>
+                <Tag color="green" key={status.status}>Funds Arrived:</Tag>
+                <Tag color="green" key={status.date}>{dateArrival}</Tag>
+              </span>);
+          }
           return (
             <span>
               <Tag color="cyan" key={status.status}>Funds Arriving:</Tag>
@@ -71,7 +75,8 @@ class TransactionTable extends Component {
         dataIndex: 'amount',
         sorter: (a, b) => a.message.length - b.message.length,
         render: (amount) => {
-          return <Tag color="green" key={amount}>₹{(parseInt(amount, 10).toFixed(2) / 100).toFixed(2)}</Tag>;
+          console.log(amount);
+          return <Tag color="green" key={amount}>₹{(parseInt(amount * 0.94, 10).toFixed(2) / 100).toFixed(2)}</Tag>;
         },
       },
       {

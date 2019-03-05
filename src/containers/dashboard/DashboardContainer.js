@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button } from 'antd';
+import { Button, Row, Col } from 'antd';
 import { fetchTransactions, createTransaction, createOrder, addBank } from '../../actions';
 import TransactionTable from './TransactionTable';
+import PortfolioContainer from './PortfolioContainer';
 import InnerNav from '../InnerNav';
 import CollectionCreateForm from './TransactionModal';
 import BankForm from './BankModal';
@@ -16,6 +17,7 @@ class DashboardContainer extends React.Component {
       confirmLoading: false,
       visibleBank: false,
       confirmLoadingBank: false,
+      showTransaction: true,
     };
 
     this.getTransactions = this.getTransactions.bind(this);
@@ -31,6 +33,8 @@ class DashboardContainer extends React.Component {
     this.handleBankCancel = this.handleBankCancel.bind(this);
     this.handleBankCreate = this.handleBankCreate.bind(this);
     this.saveBankFormRef = this.saveBankFormRef.bind(this);
+    this.showTransactionsPage = this.showTransactionsPage.bind(this);
+    this.showPortfolioPage = this.showPortfolioPage.bind(this);
 
       // Utility method to process transaction data for table
     this.processData = (inputData) => {
@@ -207,16 +211,46 @@ class DashboardContainer extends React.Component {
     rzp.open();
   }
 
+  showTransactionsPage() {
+    this.setState({
+      showTransaction: true,
+    });
+  }
+
+  showPortfolioPage() {
+    this.setState({
+      showTransaction: false,
+    });
+  }
+
   render() {
-    console.log('render called');
+    let content;
+
+    if (this.state.showTransaction) {
+      content = <TransactionTable records={this.processData(this.state.transactions)} />;
+    } else {
+      content = <PortfolioContainer />;
+    }
 
     return (
       <div>
         <InnerNav color="#3c67c3" />
         <div id="dashboardBody">
-          <Button type="primary" id="newTransactionButton" onClick={this.showModal}>
-            + New Transaction
-          </Button>
+          <Row>
+            <Col id="switchDiv" span={12}>
+              <Button id="transactionSwitch" onClick={this.showTransactionsPage}>
+              Transactions
+              </Button>
+              <Button id="portfolioSwitch" onClick={this.showPortfolioPage}>
+              Portfolio
+              </Button>
+            </Col>
+            <Col id="transactionDiv" span={12}>
+              <Button type="primary" id="newTransactionButton" onClick={this.showModal}>
+              + New Transaction
+              </Button>
+            </Col>
+          </Row>
           <CollectionCreateForm
             wrappedComponentRef={this.saveFormRef}
             visible={this.state.visible}
@@ -231,7 +265,7 @@ class DashboardContainer extends React.Component {
             onCreate={this.handleBankCreate}
             confirmLoading={this.state.confirmLoadingBank}
           />
-          <TransactionTable records={this.processData(this.state.transactions)} />
+          {content}
         </div>
       </div>
     );
