@@ -15,10 +15,18 @@ import RegisterUserContainer from './containers/auth/RegisterUserContainer';
 import DashboardContainer from './containers/dashboard/DashboardContainer';
 import FAQ from './containers/landing_page/FAQ';
 import SettingsContainer from './containers/settings/SettingsContainer';
+
+import * as Sentry from '@sentry/browser';
+// should have been called before using it here
+// ideally before even rendering your react app
 // import App from './components/app';
 
 // Import main style sheet for website
 import './style.scss';
+
+Sentry.init({
+  dsn: 'https://11ccc396990e41c59a7a547be2012f8a@sentry.io/1409621',
+});
 
 // this creates the store with the reducers, and does some other stuff to initialize devtools
 const store = createStore(reducers, {}, compose(
