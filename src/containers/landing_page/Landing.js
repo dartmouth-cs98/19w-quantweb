@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import { Layout, Row, Col } from 'antd';
 
 import Nav from '../Nav';
@@ -26,7 +26,9 @@ const Landing = (props) => {
                   <p id="sub_text">
                   Convert your credit card to cash while <br /> avoiding expensive bank fees.
                   </p>
-                  <button onClick={props.increment} className="menu_item" id="bannerSignUp">Sign Up</button>
+                  <div id="bannerSignUp2">
+                    <NavLink to="/register" className="menu_item" id="bannerSignUp2Text">Sign Up</NavLink>
+                  </div>
                 </Col>
               </div>
             </Col>

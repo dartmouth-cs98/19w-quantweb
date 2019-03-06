@@ -579,3 +579,20 @@ body {
   display: flex;
   flex-direction: row-reverse;
 }
+
+#bannerSignUp2 {
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  background-color: rgb(66, 238, 248);  color: #FFFFFF;
+  width: 200px;
+  height: 60px;
+}
+
+#bannerSignUp2Text {
+  font-size: 32px;
+  font-weight: 640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
