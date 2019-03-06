@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import * as Sentry from '@sentry/browser';
 import reducers from './reducers';
 import { ActionTypes } from './actions';
 import requireAuth from './components/requireAuth';
@@ -15,8 +16,6 @@ import RegisterUserContainer from './containers/auth/RegisterUserContainer';
 import DashboardContainer from './containers/dashboard/DashboardContainer';
 import FAQ from './containers/landing_page/FAQ';
 import SettingsContainer from './containers/settings/SettingsContainer';
-
-import * as Sentry from '@sentry/browser';
 // should have been called before using it here
 // ideally before even rendering your react app
 // import App from './components/app';
