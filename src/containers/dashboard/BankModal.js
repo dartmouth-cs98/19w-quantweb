@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Form, Input, Button } from 'antd';
+import { Modal, Form, Input } from 'antd';
 
 
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
@@ -68,9 +68,6 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
               })(
                 <Input />,
               )}
-            </Form.Item>
-            <Form.Item >
-              <Button type="primary" htmlType="submit">Submit</Button>
             </Form.Item>
           </Form>
         </Modal>
