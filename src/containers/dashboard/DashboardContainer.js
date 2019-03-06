@@ -144,7 +144,6 @@ class DashboardContainer extends React.Component {
 
     const form = this.formRefBank.props.form;
     form.validateFields((err, values) => {
-      debugger;
       if (err) {
         return;
       }
