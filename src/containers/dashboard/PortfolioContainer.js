@@ -85,7 +85,7 @@ class PortfolioContainer extends Component {
       Tag =
       (<center>
         <span id="tableTitle">Points: {parseInt(this.props.user.user.points, 10)} - </span>
-        <span id="tableTitle">Rupee Value: ₹{rupeeValue} </span>
+        <span id="tableTitle">Rupee Value: ₹{rupeeValue.toFixed(2)} </span>
       </center>);
     } else {
       Tag =

@@ -18,6 +18,7 @@ class DashboardContainer extends React.Component {
       visibleBank: false,
       confirmLoadingBank: false,
       showTransaction: true,
+      bankSet: false,
     };
 
     this.getTransactions = this.getTransactions.bind(this);
@@ -66,11 +67,14 @@ class DashboardContainer extends React.Component {
 
   componentDidMount() {
     this.getTransactions();
-
+    const hide = message.loading('Loading...', 0);
+    setTimeout(hide, 2000);
     setTimeout(() => {
       if (!this.props.user.user.bankSet) {
         this.showBankModal();
       }
+      //eslint-disable-next-line
+      this.setState({ bankSet: this.props.user.user.bankSet });
     }, 2000);
   }
 
@@ -188,8 +192,8 @@ class DashboardContainer extends React.Component {
     const options = {
       key: 'rzp_test_XYB3SORKydGnpK',
       amount: (e.data.amount * 100),
-      name: 'Test Merchant',
-      description: 'Test Payment',
+      name: 'PaisaJi',
+      description: 'Credit Card to Cash',
       image: 'https://img.icons8.com/cotton/2x/get-cash.png',
       order_id: e.data.orderId,
       handler: (response) => {
@@ -198,15 +202,15 @@ class DashboardContainer extends React.Component {
         this.handleCreateTransaction(response.razorpay_payment_id, response.razorpay_order_id);
       },
       prefill: {
-        name: 'Test Testerton',
-        email: 'test@test.com',
+        name: `${this.props.user.user.firstname} ${this.props.user.user.lastname}`,
+        email: this.props.user.user.email,
         contact: '5-555-555-5555',
       },
       notes: {
         address: 'Hello World',
       },
       theme: {
-        color: '#F37254',
+        color: '#3c67c3',
       },
     };
 
