@@ -70,7 +70,6 @@
     "really-smooth-scroll": "^2.1.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "sentry": "^0.1.2",
     "surge": "^0.19.0"
   }
 }
