@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   Form,
+  Icon,
   Input,
   Select,
   Button,
@@ -59,6 +60,14 @@ class RegisterUserForm extends Component {
   }
 
   render() {
+    if (!this.props.user.user) {
+      return (
+        <div id="loadingIconForSettings">
+          <Icon type="loading" style={{ fontSize: 40 }} spin />
+        </div>
+      );
+    }
+
     const { getFieldDecorator } = this.props.form;
 
     const formItemLayout = {
@@ -81,6 +90,7 @@ class RegisterUserForm extends Component {
     );
     const user = this.props.user.user;
     console.log(user.email);
+
     return (
       <div id="registrationForm">
         <Form onSubmit={this.handleSubmit}>

@@ -14,8 +14,8 @@ export function getUser() {
   console.log(`Config: ${JSON.stringify(getConfig())}`);
   return (dispatch) => {
     axios.get(`${ROOT_URL}/getUser`, getConfig()).then((response) => {
-      console.log('Got user!');
-      console.log(response);
+      // console.log('Got user!');
+      // console.log(response);
       dispatch({ type: 'GET_USER', payload: response.data.user });
     }).catch((error) => {
       console.log(error);
