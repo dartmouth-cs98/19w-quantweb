@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button } from 'antd';
+import { Button, Row, Col, message } from 'antd';
 import { fetchTransactions, createTransaction, createOrder, addBank } from '../../actions';
 import TransactionTable from './TransactionTable';
+import PortfolioContainer from './PortfolioContainer';
 import InnerNav from '../InnerNav';
 import CollectionCreateForm from './TransactionModal';
 import BankForm from './BankModal';
@@ -16,6 +17,8 @@ class DashboardContainer extends React.Component {
       confirmLoading: false,
       visibleBank: false,
       confirmLoadingBank: false,
+      showTransaction: true,
+      bankSet: false,
     };
 
     this.getTransactions = this.getTransactions.bind(this);
@@ -31,6 +34,9 @@ class DashboardContainer extends React.Component {
     this.handleBankCancel = this.handleBankCancel.bind(this);
     this.handleBankCreate = this.handleBankCreate.bind(this);
     this.saveBankFormRef = this.saveBankFormRef.bind(this);
+    this.showTransactionsPage = this.showTransactionsPage.bind(this);
+    this.showPortfolioPage = this.showPortfolioPage.bind(this);
+    this.showBankWarning = this.showBankWarning.bind(this);
 
       // Utility method to process transaction data for table
     this.processData = (inputData) => {
@@ -61,11 +67,14 @@ class DashboardContainer extends React.Component {
 
   componentDidMount() {
     this.getTransactions();
-
+    const hide = message.loading('Loading...', 0);
+    setTimeout(hide, 2000);
     setTimeout(() => {
       if (!this.props.user.user.bankSet) {
         this.showBankModal();
       }
+      //eslint-disable-next-line
+      this.setState({ bankSet: this.props.user.user.bankSet });
     }, 2000);
   }
 
@@ -102,6 +111,7 @@ class DashboardContainer extends React.Component {
     const form = this.formRef.props.form;
     form.validateFields((err, values) => {
       if (err) {
+        this.setState({ confirmLoading: false });
         return;
       }
       createOrder((parseInt(values.amount * 100, 10)), this.handleNewTransaction);
@@ -181,8 +191,8 @@ class DashboardContainer extends React.Component {
     const options = {
       key: 'rzp_test_XYB3SORKydGnpK',
       amount: (e.data.amount * 100),
-      name: 'Test Merchant',
-      description: 'Test Payment',
+      name: 'PaisaJi',
+      description: 'Credit Card to Cash',
       image: 'https://img.icons8.com/cotton/2x/get-cash.png',
       order_id: e.data.orderId,
       handler: (response) => {
@@ -191,15 +201,15 @@ class DashboardContainer extends React.Component {
         this.handleCreateTransaction(response.razorpay_payment_id, response.razorpay_order_id);
       },
       prefill: {
-        name: 'Test Testerton',
-        email: 'test@test.com',
+        name: `${this.props.user.user.firstname} ${this.props.user.user.lastname}`,
+        email: this.props.user.user.email,
         contact: '5-555-555-5555',
       },
       notes: {
         address: 'Hello World',
       },
       theme: {
-        color: '#F37254',
+        color: '#3c67c3',
       },
     };
 
@@ -208,15 +218,62 @@ class DashboardContainer extends React.Component {
     rzp.open();
   }
 
+  showTransactionsPage() {
+    this.setState({
+      showTransaction: true,
+    });
+  }
+
+  showPortfolioPage() {
+    this.setState({
+      showTransaction: false,
+    });
+  }
+
+  showBankWarning() {
+    console.log(this);
+    message.warning('Please set bank info in Settings');
+  }
+
   render() {
-    console.log(this.props.user);
+    let content, transaction;
+
+    if (this.state.showTransaction) {
+      content = <TransactionTable records={this.processData(this.state.transactions)} />;
+    } else {
+      content = <PortfolioContainer />;
+    }
+
+    if (this.state.bankSet) {
+      transaction =
+        (<Button type="primary" id="newTransactionButton" onClick={this.showModal}>
+        + New Transaction
+        </Button>);
+    } else {
+      transaction =
+        (<Button type="primary" id="newTransactionButton" onClick={this.showBankWarning} >
+        + New Transaction
+        </Button>);
+    }
+
+
     return (
       <div>
         <InnerNav color="#3c67c3" />
         <div id="dashboardBody">
-          <Button type="primary" id="newTransactionButton" onClick={this.showModal}>
-            + New Transaction
-          </Button>
+          <Row>
+            <Col id="switchDiv" span={12}>
+              <Button id="transactionSwitch" onClick={this.showTransactionsPage}>
+              Transactions
+              </Button>
+              <Button id="portfolioSwitch" onClick={this.showPortfolioPage}>
+              Portfolio
+              </Button>
+            </Col>
+            <Col id="transactionDiv" span={12}>
+              {transaction}
+            </Col>
+          </Row>
           <CollectionCreateForm
             wrappedComponentRef={this.saveFormRef}
             visible={this.state.visible}
@@ -231,7 +288,7 @@ class DashboardContainer extends React.Component {
             onCreate={this.handleBankCreate}
             confirmLoading={this.state.confirmLoadingBank}
           />
-          <TransactionTable records={this.processData(this.state.transactions)} />
+          {content}
         </div>
       </div>
     );

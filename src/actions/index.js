@@ -111,6 +111,13 @@ export function addBank(IFCS, accountNumber, firstname, lastname, email) {
   });
 }
 
+export function getStockPrices(cb) {
+  axios.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=INDA&apikey=1TTCW4N7SLIUCIWS')
+  .then((response) => {
+    cb(response.data['Time Series (Daily)']);
+  });
+}
+
 // export function validateIFCS(IFCS) {
 //   axios.get('https://ifsc.razorpay.com/', {
 //     IFCS,

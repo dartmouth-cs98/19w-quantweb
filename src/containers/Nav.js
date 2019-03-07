@@ -39,6 +39,7 @@ class Nav extends Component {
   /*eslint-disable */
   scrollPageDown() {
     window.scrollTo({ top: 1800, behavior: 'smooth' });
+    console.log(this);
   }
   /*eslint-enable */
 
